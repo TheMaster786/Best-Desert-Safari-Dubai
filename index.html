@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desert Safari World | Luxury Desert Experiences</title>
-    <meta name="description" content="Experience the best desert safari in Dubai with private, exclusive adventures. Luxury 4x4 transfers, VIP seating, gourmet dining, and 5-star service for discerning travelers.">
-    <meta name="keywords" content="luxury desert safari dubai, private desert safari, vip desert experience, premium desert safari">
+    <title>Desert Safari World | Luxury Desert Experiences & Blog</title>
+    <meta name="description" content="Experience the best desert safari in Dubai with private, exclusive adventures. Read our blog for desert travel tips, guides, and luxury experiences.">
+    <meta name="keywords" content="luxury desert safari dubai, private desert safari, vip desert experience, desert blog, dubai travel guide">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Desert Safari World | Luxury Desert Experiences">
-    <meta property="og:description" content="Private and exclusive desert safari adventures curated for luxury travelers.">
+    <meta property="og:title" content="Desert Safari World | Luxury Desert Experiences & Blog">
+    <meta property="og:description" content="Private and exclusive desert safari adventures curated for luxury travelers. Explore our blog for desert insights.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.desertsafariworld.com">
     
@@ -84,11 +84,6 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes reveal {
-            from { opacity: 0; clip-path: inset(0 0 100% 0); }
-            to { opacity: 1; clip-path: inset(0 0 0 0); }
         }
 
         .fade-in {
@@ -541,7 +536,266 @@
             line-height: 1.6;
         }
 
-        /* Experience Template Page (hidden by default, shown via navigation) */
+        /* Blog Styles */
+        .blog-section {
+            background: var(--cream);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .blog-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--white);
+            padding: 6px 16px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            color: #999;
+            font-size: 13px;
+        }
+
+        .blog-meta i {
+            color: var(--gold);
+            margin-right: 5px;
+        }
+
+        .blog-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--black);
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .blog-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+
+        .blog-link:hover {
+            gap: 12px;
+        }
+
+        /* Single Blog Post */
+        .single-blog {
+            display: none;
+            padding-top: 100px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .single-blog.active {
+            display: block;
+        }
+
+        .blog-header {
+            margin-bottom: 40px;
+        }
+
+        .blog-header h1 {
+            font-size: 48px;
+            margin: 20px 0 15px;
+        }
+
+        .blog-header .blog-meta {
+            font-size: 14px;
+        }
+
+        .blog-featured-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            margin-bottom: 40px;
+        }
+
+        .blog-content-full {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        .blog-content-full p {
+            margin-bottom: 25px;
+        }
+
+        .blog-content-full h2 {
+            font-size: 32px;
+            margin: 40px 0 20px;
+        }
+
+        .blog-content-full h3 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+        }
+
+        .blog-content-full blockquote {
+            border-left: 3px solid var(--gold);
+            padding: 20px 30px;
+            margin: 30px 0;
+            background: var(--beige);
+            font-style: italic;
+            font-size: 18px;
+        }
+
+        .blog-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .blog-nav-link {
+            color: var(--black);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s;
+        }
+
+        .blog-nav-link:hover {
+            color: var(--gold);
+        }
+
+        /* Admin Blog Post Form */
+        .admin-section {
+            background: var(--beige);
+            padding: 40px;
+            border-radius: 4px;
+            margin: 40px 0;
+            display: none;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .admin-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .admin-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .admin-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--black);
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .admin-form input,
+        .admin-form select,
+        .admin-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(198, 161, 91, 0.2);
+            background: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+        }
+
+        .admin-form input:focus,
+        .admin-form select:focus,
+        .admin-form textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .admin-form textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .admin-toggle {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .admin-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .admin-toggle-btn:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        /* Experience Template Page */
         .experience-page {
             display: none;
             padding-top: 100px;
@@ -878,6 +1132,7 @@
             h1 { font-size: 56px; }
             h2 { font-size: 48px; }
             .experiences-grid { grid-template-columns: repeat(2, 1fr); }
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
             .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
         }
 
@@ -888,6 +1143,7 @@
             .nav-menu { display: none; }
             .hero-buttons { flex-direction: column; }
             .experiences-grid { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: 1fr; }
             .expertise-content { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; gap: 30px; }
@@ -908,12 +1164,54 @@
             <nav class="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#experiences" class="nav-link">Experiences</a>
+                <a href="#blog" class="nav-link">Blog</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
                 <a href="#book" class="btn btn-primary"><span>Book Now</span></a>
             </nav>
         </div>
     </header>
+
+    <!-- Admin Toggle (Hidden for regular users, can be triggered with double-click) -->
+    <div class="admin-toggle">
+        <button class="admin-toggle-btn" id="adminToggleBtn" onclick="toggleAdminPanel()">Admin: New Blog Post</button>
+    </div>
+
+    <!-- Admin Blog Post Form -->
+    <div class="admin-section" id="adminPanel">
+        <div class="container">
+            <h3 style="text-align: center; margin-bottom: 30px;">Create New Blog Post</h3>
+            <form class="admin-form" id="blogForm">
+                <div class="form-group">
+                    <label>Blog Title</label>
+                    <input type="text" id="blogTitle" placeholder="Enter blog title" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="blogCategory" required>
+                        <option value="Desert Guide">Desert Guide</option>
+                        <option value="Luxury Travel">Luxury Travel</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="Culture">Culture</option>
+                        <option value="Tips & Advice">Tips & Advice</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="url" id="blogImage" placeholder="Enter image URL" required>
+                </div>
+                <div class="form-group">
+                    <label>Excerpt (Short description)</label>
+                    <textarea id="blogExcerpt" placeholder="Enter short excerpt" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Full Content (HTML supported)</label>
+                    <textarea id="blogContent" placeholder="Enter full blog content with HTML tags" rows="10" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;"><span>Publish Blog Post</span></button>
+            </form>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main>
@@ -991,6 +1289,19 @@
                                 <a href="#" class="experience-link">View Details <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Section -->
+            <div class="section blog-section" id="blog">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Desert Stories & Insights</h2>
+                        <p>Discover the magic of the desert through our curated blog posts</p>
+                    </div>
+                    <div class="blog-grid" id="blogGrid">
+                        <!-- Blog posts will be dynamically loaded here -->
                     </div>
                 </div>
             </div>
@@ -1104,7 +1415,7 @@
             </div>
         </section>
 
-        <!-- Experience Pages (Hidden by default) -->
+        <!-- Experience Pages -->
         <!-- Private Luxury Desert Safari -->
         <section class="experience-page" id="private-experience">
             <div class="experience-hero" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1547234935-80c7145ec969?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
@@ -1114,7 +1425,6 @@
                     <a href="#contact" class="btn btn-primary"><span>Reserve Your Experience</span></a>
                 </div>
             </div>
-
             <div class="container">
                 <div class="info-grid">
                     <div>
@@ -1122,10 +1432,6 @@
                         <p style="margin-bottom: 30px; line-height: 1.8;">Enjoy a fully private desert safari with personalized service from pickup to drop-off. Your professional driver will take you on an exhilarating dune drive followed by a sunset photo stop in the heart of the Arabian desert.</p>
                         <p style="margin-bottom: 30px; line-height: 1.8;">At the premium desert camp, relax in VIP seating and enjoy a gourmet BBQ dinner, live entertainment, and traditional Arabian hospitality.</p>
                         
-                        <h4 style="margin: 40px 0 20px;">Delivered by Experienced Desert Professionals</h4>
-                        <p style="margin-bottom: 30px; line-height: 1.8;">This experience is operated by licensed desert safari professionals with over a decade of experience in Dubai's tourism industry. Our team has hosted thousands of international guests, corporate clients, and VIP travelers, ensuring exceptional service and safety standards at every stage of your journey.</p>
-                        <p style="margin-bottom: 30px; line-height: 1.8;">All vehicles are fully insured and maintained to the highest standards, and our drivers are certified for desert terrain navigation.</p>
-
                         <h4 style="margin: 40px 0 20px;">Experience Highlights</h4>
                         <ul class="highlights-list">
                             <li><i class="fas fa-check-circle"></i> Private 4x4 pickup and drop-off</li>
@@ -1136,34 +1442,7 @@
                             <li><i class="fas fa-check-circle"></i> Live cultural performances</li>
                             <li><i class="fas fa-check-circle"></i> Camel ride & sandboarding</li>
                         </ul>
-
-                        <div class="add-ons">
-                            <h4>Optional Add-Ons</h4>
-                            <div class="add-ons-grid">
-                                <div class="add-on-item">
-                                    <i class="fas fa-motorcycle"></i>
-                                    <span>Quad Biking</span>
-                                </div>
-                                <div class="add-on-item">
-                                    <i class="fas fa-truck"></i>
-                                    <span>Buggy</span>
-                                </div>
-                                <div class="add-on-item">
-                                    <i class="fas fa-camera"></i>
-                                    <span>Private Photographer</span>
-                                </div>
-                                <div class="add-on-item">
-                                    <i class="fas fa-wine-glass-alt"></i>
-                                    <span>Premium Beverages</span>
-                                </div>
-                                <div class="add-on-item">
-                                    <i class="fas fa-birthday-cake"></i>
-                                    <span>Special Celebration</span>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-
                     <div>
                         <div class="info-card">
                             <h4>Important Information</h4>
@@ -1183,58 +1462,6 @@
                                 <strong>Dress Code</strong>
                                 <span>Smart casual, comfortable footwear</span>
                             </div>
-                            <div class="info-item">
-                                <strong>Cancellation</strong>
-                                <span>24-hour free cancellation</span>
-                            </div>
-                            <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 30px;"><span>Book Now</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ultra VIP Desert Experience -->
-        <section class="experience-page" id="vip-experience">
-            <div class="experience-hero" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
-                <div class="container">
-                    <h1>Ultra VIP Desert Experience in Dubai</h1>
-                    <p>The ultimate desert safari featuring luxury SUV transfer and premium service.</p>
-                    <a href="#contact" class="btn btn-primary"><span>Reserve Your Experience</span></a>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="info-grid">
-                    <div>
-                        <h3>Overview</h3>
-                        <p style="margin-bottom: 30px; line-height: 1.8;">Experience the pinnacle of desert luxury with our Ultra VIP package. Travel in a premium SUV with a dedicated host, enjoy exclusive access to the finest private camp, and indulge in personalized service throughout your journey.</p>
-                        
-                        <h4 style="margin: 40px 0 20px;">Experience Highlights</h4>
-                        <ul class="highlights-list">
-                            <li><i class="fas fa-check-circle"></i> Luxury SUV transfer (Lexus/Infiniti)</li>
-                            <li><i class="fas fa-check-circle"></i> Private traditional majlis seating</li>
-                            <li><i class="fas fa-check-circle"></i> Premium dining with waiter service</li>
-                            <li><i class="fas fa-check-circle"></i> Exclusive live entertainment</li>
-                            <li><i class="fas fa-check-circle"></i> Private desert camp access</li>
-                            <li><i class="fas fa-check-circle"></i> Dedicated host throughout</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="info-card">
-                            <h4>Important Information</h4>
-                            <div class="info-item">
-                                <strong>Duration</strong>
-                                <span>7–8 hours</span>
-                            </div>
-                            <div class="info-item">
-                                <strong>Pickup Time</strong>
-                                <span>3:00 PM – 4:00 PM</span>
-                            </div>
-                            <div class="info-item">
-                                <strong>Group Size</strong>
-                                <span>Private (up to 4 guests)</span>
-                            </div>
                             <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 30px;"><span>Inquire Now</span></a>
                         </div>
                     </div>
@@ -1242,91 +1469,118 @@
             </div>
         </section>
 
-        <!-- Overnight Royal Desert Escape -->
-        <section class="experience-page" id="overnight-experience">
-            <div class="experience-hero" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+        <!-- Ultra VIP Experience -->
+        <section class="experience-page" id="vip-experience">
+            <div class="experience-hero" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
                 <div class="container">
-                    <h1>Overnight Royal Desert Escape</h1>
-                    <p>Sleep under the Arabian sky in a luxury tent with fine dining.</p>
+                    <h1>Ultra VIP Desert Experience</h1>
+                    <p>The pinnacle of desert luxury with exclusive service.</p>
                     <a href="#contact" class="btn btn-primary"><span>Reserve Your Experience</span></a>
                 </div>
             </div>
-
             <div class="container">
                 <div class="info-grid">
                     <div>
                         <h3>Overview</h3>
-                        <p style="margin-bottom: 30px; line-height: 1.8;">Spend a night under the stars in our royal desert camp. This exclusive overnight experience includes a sunset safari, gourmet dinner, luxury tent accommodation, and sunrise camel trekking.</p>
-                        
+                        <p style="margin-bottom: 30px; line-height: 1.8;">Experience the ultimate in desert luxury with private SUV transfer, dedicated host, and exclusive access to our VIP camp.</p>
                         <h4 style="margin: 40px 0 20px;">Experience Highlights</h4>
                         <ul class="highlights-list">
-                            <li><i class="fas fa-check-circle"></i> Private luxury tent accommodation</li>
-                            <li><i class="fas fa-check-circle"></i> Sunset dune bashing</li>
-                            <li><i class="fas fa-check-circle"></i> 5-course gourmet dinner</li>
-                            <li><i class="fas fa-check-circle"></i> Sunrise camel trek</li>
-                            <li><i class="fas fa-check-circle"></i> Arabian breakfast</li>
-                            <li><i class="fas fa-check-circle"></i> Stargazing experience</li>
+                            <li><i class="fas fa-check-circle"></i> Luxury SUV transfer</li>
+                            <li><i class="fas fa-check-circle"></i> Private majlis seating</li>
+                            <li><i class="fas fa-check-circle"></i> Premium dining service</li>
+                            <li><i class="fas fa-check-circle"></i> Dedicated host</li>
                         </ul>
                     </div>
                     <div>
                         <div class="info-card">
-                            <h4>Important Information</h4>
+                            <h4>Information</h4>
+                            <div class="info-item">
+                                <strong>Duration</strong>
+                                <span>7 hours</span>
+                            </div>
+                            <a href="#contact" class="btn btn-primary" style="width: 100%;"><span>Inquire Now</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overnight Experience -->
+        <section class="experience-page" id="overnight-experience">
+            <div class="experience-hero" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                <div class="container">
+                    <h1>Overnight Royal Escape</h1>
+                    <p>Sleep under the stars in luxury.</p>
+                    <a href="#contact" class="btn btn-primary"><span>Reserve Your Experience</span></a>
+                </div>
+            </div>
+            <div class="container">
+                <div class="info-grid">
+                    <div>
+                        <h3>Overview</h3>
+                        <p style="margin-bottom: 30px; line-height: 1.8;">Spend a night in our luxury desert camp with gourmet dining and stargazing.</p>
+                        <h4 style="margin: 40px 0 20px;">Experience Highlights</h4>
+                        <ul class="highlights-list">
+                            <li><i class="fas fa-check-circle"></i> Luxury tent accommodation</li>
+                            <li><i class="fas fa-check-circle"></i> Sunset safari</li>
+                            <li><i class="fas fa-check-circle"></i> Gourmet dinner</li>
+                            <li><i class="fas fa-check-circle"></i> Sunrise camel trek</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="info-card">
+                            <h4>Information</h4>
                             <div class="info-item">
                                 <strong>Duration</strong>
                                 <span>24 hours</span>
                             </div>
-                            <div class="info-item">
-                                <strong>Pickup Time</strong>
-                                <span>3:00 PM</span>
-                            </div>
-                            <div class="info-item">
-                                <strong>Includes</strong>
-                                <span>Dinner, breakfast, all activities</span>
-                            </div>
-                            <a href="#contact" class="btn btn-primary" style="width: 100%; margin-top: 30px;"><span>Inquire Now</span></a>
+                            <a href="#contact" class="btn btn-primary" style="width: 100%;"><span>Inquire Now</span></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Single Blog Post View -->
+        <div class="single-blog" id="singleBlog">
+            <div class="container">
+                <div class="blog-header">
+                    <span class="blog-category" id="blogCategoryDisplay"></span>
+                    <h1 id="blogTitleDisplay"></h1>
+                    <div class="blog-meta">
+                        <span><i class="far fa-calendar"></i> <span id="blogDateDisplay"></span></span>
+                        <span><i class="far fa-user"></i> Desert Safari World</span>
+                    </div>
+                </div>
+                <img src="" alt="Blog Featured Image" class="blog-featured-image" id="blogImageDisplay">
+                <div class="blog-content-full" id="blogContentDisplay"></div>
+                <div class="blog-navigation">
+                    <a href="#" class="blog-nav-link" onclick="showBlogSection()"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+                </div>
+            </div>
+        </div>
 
         <!-- Contact Page Section -->
         <section class="section" id="contact" style="display: none;">
             <div class="container">
                 <div class="section-title">
                     <h2>Speak With Our Desert Concierge</h2>
-                    <p>Have questions or special requests? Our team is available 24/7 to assist you with planning your perfect desert safari experience in Dubai.</p>
+                    <p>Have questions or special requests? Our team is available 24/7 to assist you.</p>
                 </div>
-
                 <div class="contact-grid">
                     <div class="contact-info">
                         <h3>Contact Information</h3>
-                        
                         <div class="contact-detail">
                             <i class="fab fa-whatsapp"></i>
                             <strong>WhatsApp</strong>
                             <span>+971 50 516 7381</span>
                         </div>
-                        
                         <div class="contact-detail">
                             <i class="far fa-envelope"></i>
                             <strong>Email</strong>
                             <span>bookings@desertsafariworld.com</span>
                         </div>
-                        
-                        <div class="contact-detail">
-                            <i class="far fa-clock"></i>
-                            <strong>Response Time</strong>
-                            <span>Within 2 hours</span>
-                        </div>
-
-                        <div class="social-links" style="margin-top: 40px;">
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
                     </div>
-
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <input type="text" placeholder="Your Name" required>
@@ -1338,40 +1592,20 @@
                             <input type="tel" placeholder="WhatsApp Number" required>
                         </div>
                         <div class="form-group">
-                            <input type="date" placeholder="Preferred Date" required>
+                            <textarea placeholder="Your Message" required></textarea>
                         </div>
-                        <div class="form-group">
-                            <input type="number" placeholder="Number of Guests" min="1" required>
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="">Select Experience</option>
-                                <option value="private">Private Luxury Desert Safari</option>
-                                <option value="vip">Ultra VIP Desert Experience</option>
-                                <option value="overnight">Overnight Royal Desert Escape</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message or Special Requests" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;"><span>Request Availability</span></button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;"><span>Send Message</span></button>
                     </form>
                 </div>
             </div>
         </section>
 
-        <!-- Privacy Policy (Simplified) -->
+        <!-- Privacy Policy -->
         <section class="section" id="privacy" style="display: none;">
             <div class="container">
                 <h2>Privacy Policy</h2>
-                <div style="max-width: 800px; margin: 40px auto; line-height: 1.8;">
-                    <p>At Desert Safari World, we take your privacy seriously. This policy describes how we collect, use, and protect your personal information.</p>
-                    <h3 style="margin: 30px 0 15px;">Information We Collect</h3>
-                    <p>We collect information you provide directly to us, such as when you make a booking, contact us, or sign up for our newsletter. This may include your name, email address, phone number, and payment information.</p>
-                    <h3 style="margin: 30px 0 15px;">How We Use Your Information</h3>
-                    <p>We use the information we collect to process your bookings, communicate with you, and improve our services. We do not sell or share your personal information with third parties except as necessary to provide our services.</p>
-                    <h3 style="margin: 30px 0 15px;">Contact Us</h3>
-                    <p>If you have questions about this privacy policy, please contact us at privacy@desertsafariworld.com</p>
+                <div style="max-width: 800px; margin: 40px auto;">
+                    <p>At Desert Safari World, we take your privacy seriously...</p>
                 </div>
             </div>
         </section>
@@ -1380,13 +1614,8 @@
         <section class="section" id="terms" style="display: none;">
             <div class="container">
                 <h2>Terms & Conditions</h2>
-                <div style="max-width: 800px; margin: 40px auto; line-height: 1.8;">
-                    <h3 style="margin: 30px 0 15px;">Booking Terms</h3>
-                    <p>All bookings are subject to availability and confirmation. A deposit may be required to secure your reservation.</p>
-                    <h3 style="margin: 30px 0 15px;">Cancellation Policy</h3>
-                    <p>Free cancellation up to 24 hours before your scheduled experience. Late cancellations may incur a fee.</p>
-                    <h3 style="margin: 30px 0 15px;">Liability</h3>
-                    <p>Desert Safari World acts as a booking agent for licensed tour operators. While we ensure high standards, we are not liable for incidents beyond our reasonable control.</p>
+                <div style="max-width: 800px; margin: 40px auto;">
+                    <p>All bookings are subject to availability...</p>
                 </div>
             </div>
         </section>
@@ -1398,36 +1627,151 @@
             <div class="footer-grid">
                 <div>
                     <div class="footer-logo">Desert Safari <span>World</span></div>
-                    <p class="footer-about">Luxury desert safari experiences for discerning travelers to Dubai. Private, exclusive, and unforgettable adventures in the Arabian desert.</p>
+                    <p class="footer-about">Luxury desert safari experiences for discerning travelers to Dubai.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <a href="#about">About Us</a>
                     <a href="#experiences">Experiences</a>
+                    <a href="#blog">Blog</a>
                     <a href="#contact">Contact</a>
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms & Conditions</a>
                 </div>
                 <div class="footer-links">
                     <h4>Experiences</h4>
                     <a href="#" onclick="showExperience('private')">Private Luxury Safari</a>
                     <a href="#" onclick="showExperience('vip')">Ultra VIP Experience</a>
-                    <a href="#" onclick="showExperience('overnight')">Overnight Royal Escape</a>
+                    <a href="#" onclick="showExperience('overnight')">Overnight Escape</a>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact</h4>
                     <p><i class="fab fa-whatsapp"></i> +971 50 516 7381</p>
                     <p><i class="far fa-envelope"></i> bookings@desertsafariworld.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Dubai, UAE</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Desert Safari World. All rights reserved. Luxury Desert Experiences.</p>
+                <p>&copy; 2024 Desert Safari World. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Blog Posts Storage
+        let blogPosts = [];
+
+        // Load blog posts from localStorage
+        function loadBlogPosts() {
+            const saved = localStorage.getItem('blogPosts');
+            if (saved) {
+                blogPosts = JSON.parse(saved);
+            } else {
+                // Default blog posts
+                blogPosts = [
+                    {
+                        id: 1,
+                        title: "Ultimate Guide to Desert Safari in Dubai",
+                        category: "Desert Guide",
+                        image: "https://images.unsplash.com/photo-1547234935-80c7145ec969?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "Everything you need to know about experiencing the magic of Dubai's deserts.",
+                        content: "<p>Dubai's desert offers a unique blend of adventure and luxury...</p>",
+                        date: new Date().toLocaleDateString()
+                    },
+                    {
+                        id: 2,
+                        title: "Luxury Camping: A Night Under the Stars",
+                        category: "Luxury Travel",
+                        image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "Experience the ultimate glamping adventure in the Arabian desert.",
+                        content: "<p>Imagine sleeping in a luxury tent with all modern amenities...</p>",
+                        date: new Date().toLocaleDateString()
+                    },
+                    {
+                        id: 3,
+                        title: "Top 10 Desert Activities for Adventure Seekers",
+                        category: "Adventure",
+                        image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                        excerpt: "From dune bashing to sandboarding, discover the best desert adventures.",
+                        content: "<p>The desert is a playground for thrill-seekers...</p>",
+                        date: new Date().toLocaleDateString()
+                    }
+                ];
+                saveBlogPosts();
+            }
+            displayBlogPosts();
+        }
+
+        // Save blog posts to localStorage
+        function saveBlogPosts() {
+            localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
+        }
+
+        // Display blog posts in grid
+        function displayBlogPosts() {
+            const grid = document.getElementById('blogGrid');
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            blogPosts.forEach(post => {
+                const card = document.createElement('div');
+                card.className = 'blog-card';
+                card.innerHTML = `
+                    <div class="blog-image">
+                        <img src="${post.image}" alt="${post.title}" loading="lazy">
+                        <div class="blog-category">${post.category}</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> ${post.date}</span>
+                            <span><i class="far fa-user"></i> Desert Safari World</span>
+                        </div>
+                        <h3 class="blog-title">${post.title}</h3>
+                        <p class="blog-excerpt">${post.excerpt}</p>
+                        <a href="#" class="blog-link" onclick="viewBlogPost(${post.id}); return false;">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // View single blog post
+        function viewBlogPost(id) {
+            const post = blogPosts.find(p => p.id === id);
+            if (post) {
+                document.getElementById('blogCategoryDisplay').textContent = post.category;
+                document.getElementById('blogTitleDisplay').textContent = post.title;
+                document.getElementById('blogDateDisplay').textContent = post.date;
+                document.getElementById('blogImageDisplay').src = post.image;
+                document.getElementById('blogContentDisplay').innerHTML = post.content;
+                
+                document.getElementById('home').style.display = 'none';
+                document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
+                document.getElementById('contact').style.display = 'none';
+                document.getElementById('privacy').style.display = 'none';
+                document.getElementById('terms').style.display = 'none';
+                document.getElementById('singleBlog').style.display = 'block';
+            }
+        }
+
+        // Show blog section
+        function showBlogSection() {
+            document.getElementById('home').style.display = 'block';
+            document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
+            document.getElementById('contact').style.display = 'none';
+            document.getElementById('privacy').style.display = 'none';
+            document.getElementById('terms').style.display = 'none';
+            document.getElementById('singleBlog').style.display = 'none';
+            
+            // Scroll to blog section
+            setTimeout(() => {
+                document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        // Toggle admin panel
+        function toggleAdminPanel() {
+            const panel = document.getElementById('adminPanel');
+            panel.classList.toggle('active');
+        }
+
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
@@ -1440,23 +1784,16 @@
 
         // Navigation between pages/sections
         function showExperience(type) {
-            // Hide all experience pages
             document.querySelectorAll('.experience-page').forEach(page => {
                 page.style.display = 'none';
             });
-            
-            // Hide homepage
             document.getElementById('home').style.display = 'none';
-            
-            // Hide other pages
             document.getElementById('contact').style.display = 'none';
             document.getElementById('privacy').style.display = 'none';
             document.getElementById('terms').style.display = 'none';
+            document.getElementById('singleBlog').style.display = 'none';
             
-            // Show selected experience
             document.getElementById(type + '-experience').style.display = 'block';
-            
-            // Scroll to top
             window.scrollTo(0, 0);
         }
 
@@ -1464,112 +1801,121 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 
-                // Show homepage if clicking home
                 if (targetId === '#home') {
                     document.getElementById('home').style.display = 'block';
-                    document.querySelectorAll('.experience-page').forEach(page => {
-                        page.style.display = 'none';
-                    });
+                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
                     document.getElementById('contact').style.display = 'none';
                     document.getElementById('privacy').style.display = 'none';
                     document.getElementById('terms').style.display = 'none';
-                }
-                
-                // Show contact page
-                if (targetId === '#contact') {
+                    document.getElementById('singleBlog').style.display = 'none';
+                } else if (targetId === '#blog') {
+                    document.getElementById('home').style.display = 'block';
+                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
+                    document.getElementById('contact').style.display = 'none';
+                    document.getElementById('privacy').style.display = 'none';
+                    document.getElementById('terms').style.display = 'none';
+                    document.getElementById('singleBlog').style.display = 'none';
+                    
+                    setTimeout(() => {
+                        document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                } else if (targetId === '#contact') {
                     document.getElementById('home').style.display = 'none';
-                    document.querySelectorAll('.experience-page').forEach(page => {
-                        page.style.display = 'none';
-                    });
+                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
                     document.getElementById('contact').style.display = 'block';
                     document.getElementById('privacy').style.display = 'none';
                     document.getElementById('terms').style.display = 'none';
-                }
-                
-                // Show privacy policy
-                if (targetId === '#privacy') {
+                    document.getElementById('singleBlog').style.display = 'none';
+                } else if (targetId === '#privacy') {
                     document.getElementById('home').style.display = 'none';
-                    document.querySelectorAll('.experience-page').forEach(page => {
-                        page.style.display = 'none';
-                    });
+                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
                     document.getElementById('contact').style.display = 'none';
                     document.getElementById('privacy').style.display = 'block';
                     document.getElementById('terms').style.display = 'none';
-                }
-                
-                // Show terms
-                if (targetId === '#terms') {
+                    document.getElementById('singleBlog').style.display = 'none';
+                } else if (targetId === '#terms') {
                     document.getElementById('home').style.display = 'none';
-                    document.querySelectorAll('.experience-page').forEach(page => {
-                        page.style.display = 'none';
-                    });
+                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
                     document.getElementById('contact').style.display = 'none';
                     document.getElementById('privacy').style.display = 'none';
                     document.getElementById('terms').style.display = 'block';
-                }
-                
-                // Scroll to section if it's on current page
-                const target = document.querySelector(targetId);
-                if (target && document.getElementById('home').style.display !== 'none') {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    document.getElementById('singleBlog').style.display = 'none';
+                } else {
+                    const target = document.querySelector(targetId);
+                    if (target && document.getElementById('home').style.display !== 'none') {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             });
         });
 
-        // Form submission
+        // Contact form submission
         document.getElementById('contactForm')?.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your inquiry. Our concierge team will contact you within 2 hours.');
             this.reset();
         });
 
-        // Initialize - show homepage
-        document.getElementById('home').style.display = 'block';
-        document.querySelectorAll('.experience-page').forEach(page => {
-            page.style.display = 'none';
+        // Blog form submission
+        document.getElementById('blogForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newPost = {
+                id: blogPosts.length + 1,
+                title: document.getElementById('blogTitle').value,
+                category: document.getElementById('blogCategory').value,
+                image: document.getElementById('blogImage').value,
+                excerpt: document.getElementById('blogExcerpt').value,
+                content: document.getElementById('blogContent').value,
+                date: new Date().toLocaleDateString()
+            };
+            
+            blogPosts.unshift(newPost);
+            saveBlogPosts();
+            displayBlogPosts();
+            
+            this.reset();
+            document.getElementById('adminPanel').classList.remove('active');
+            alert('Blog post published successfully!');
+            
+            // Show home and scroll to blog
+            document.getElementById('home').style.display = 'block';
+            document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
+            document.getElementById('contact').style.display = 'none';
+            document.getElementById('privacy').style.display = 'none';
+            document.getElementById('terms').style.display = 'none';
+            document.getElementById('singleBlog').style.display = 'none';
+            
+            setTimeout(() => {
+                document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
         });
+
+        // Initialize
+        document.getElementById('home').style.display = 'block';
+        document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
         document.getElementById('contact').style.display = 'none';
         document.getElementById('privacy').style.display = 'none';
         document.getElementById('terms').style.display = 'none';
+        document.getElementById('singleBlog').style.display = 'none';
+        document.getElementById('adminPanel').classList.remove('active');
+        
+        loadBlogPosts();
 
-        // Lazy loading for images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
+        // Double-click to show admin panel (alternative access)
+        document.addEventListener('dblclick', function(e) {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                document.getElementById('adminPanel').classList.toggle('active');
+            }
+        });
 
-            document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
-        }
-
-        // Google Analytics tracking (placeholder)
+        // Google Analytics placeholder
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX'); // Replace with your GA ID
-
-        // Facebook Pixel tracking (placeholder)
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'XXXXXXXXXX'); // Replace with your Pixel ID
-        fbq('track', 'PageView');
+        gtag('config', 'G-XXXXXXXXXX');
     </script>
 </body>
 </html>
