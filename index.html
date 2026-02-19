@@ -97,7 +97,7 @@
             animation: fadeIn 1s ease forwards;
         }
 
-        /* Header - FIXED VERSION */
+        /* Header - FIXED VERSION WITH BOOK NOW VISIBLE */
         .header {
             position: fixed;
             top: 0;
@@ -120,7 +120,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         /* Logo */
@@ -137,12 +137,6 @@
         @media (min-width: 768px) {
             .logo-text {
                 font-size: 24px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .logo-text {
-                font-size: 26px;
             }
         }
 
@@ -166,7 +160,7 @@
             }
         }
 
-        /* Navigation Menu - Desktop */
+        /* Navigation Menu */
         .nav-menu {
             position: fixed;
             top: 0;
@@ -188,29 +182,24 @@
             right: 0;
         }
 
-       @media (min-width: 992px) {
-    .nav-menu {
-        position: static;
-        width: auto;
-        height: auto;
-        padding: 0;
-        background: transparent;
-        box-shadow: none;
-        flex-direction: row;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    /* THIS IS THE IMPORTANT PART - makes Book Now button visible */
-    .nav-menu .btn-primary {
-        display: inline-block !important;
-        margin-left: 10px;
-    }
-}
-
-        @media (min-width: 1200px) {
+        /* Desktop styles - BOOK NOW BUTTON VISIBLE HERE */
+        @media (min-width: 992px) {
             .nav-menu {
+                position: static;
+                width: auto;
+                height: auto;
+                padding: 0;
+                background: transparent;
+                box-shadow: none;
+                flex-direction: row;
+                align-items: center;
                 gap: 20px;
+            }
+            
+            /* Make ALL items including BOOK NOW visible */
+            .nav-menu .nav-link,
+            .nav-menu .btn-primary {
+                display: inline-block;
             }
         }
 
@@ -219,7 +208,7 @@
             color: var(--black);
             text-decoration: none;
             font-weight: 500;
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             transition: color 0.3s;
@@ -239,27 +228,26 @@
             }
         }
 
-        @media (min-width: 992px) {
-            .nav-link::after {
-                content: '';
-                position: absolute;
-                bottom: -4px;
-                left: 0;
-                width: 0;
-                height: 1px;
-                background: var(--gold);
-                transition: width 0.3s;
-            }
-            .nav-link:hover::after {
-                width: 100%;
-            }
-        }
-
         .nav-link:hover {
             color: var(--gold);
         }
 
-        /* Book Now Button - FIXED */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Book Now Button - FIXED AND VISIBLE */
         .btn {
             display: inline-block;
             padding: 8px 16px;
@@ -278,21 +266,7 @@
 
         @media (min-width: 768px) {
             .btn {
-                padding: 10px 20px;
-                font-size: 12px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .btn {
-                padding: 10px 22px;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            .btn {
-                padding: 12px 24px;
-                font-size: 13px;
+                padding: 10px 18px;
             }
         }
 
@@ -325,15 +299,7 @@
             z-index: 1;
         }
 
-        /* Make Book Now button visible in desktop menu */
-        @media (min-width: 992px) {
-            .nav-menu .btn-primary {
-                display: inline-block;
-                margin-left: 5px;
-            }
-        }
-
-        /* Book Now button in mobile menu */
+        /* Mobile menu button style */
         .nav-menu .btn-primary {
             display: block;
             width: 100%;
@@ -579,31 +545,11 @@
             }
         }
 
-        @media (min-width: 992px) {
-            .experience-overlay h3 {
-                font-size: 28px;
-            }
-        }
-
         .experience-overlay p {
             opacity: 0.8;
             margin-bottom: 15px;
             font-size: 14px;
             line-height: 1.5;
-            display: none;
-        }
-
-        @media (min-width: 992px) {
-            .experience-overlay p {
-                display: block;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: all 0.4s 0.1s;
-            }
-            .experience-card:hover .experience-overlay p {
-                transform: translateY(0);
-                opacity: 0.8;
-            }
         }
 
         .experience-link {
@@ -615,18 +561,6 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-        }
-
-        @media (min-width: 992px) {
-            .experience-link {
-                transform: translateY(20px);
-                opacity: 0;
-                transition: all 0.4s 0.2s;
-            }
-            .experience-card:hover .experience-link {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         .experience-link i {
@@ -686,12 +620,6 @@
             }
         }
 
-        @media (min-width: 992px) {
-            .video-card video {
-                height: 240px;
-            }
-        }
-
         .video-caption {
             padding: 12px;
             text-align: center;
@@ -701,13 +629,6 @@
             border-top: 1px solid var(--border-light);
             font-size: 13px;
             letter-spacing: 1px;
-        }
-
-        @media (min-width: 768px) {
-            .video-caption {
-                padding: 15px;
-                font-size: 14px;
-            }
         }
 
         /* Why Choose Us */
@@ -749,14 +670,6 @@
             color: var(--gold);
             font-size: 28px;
             transition: all 0.3s;
-        }
-
-        @media (min-width: 768px) {
-            .feature-icon {
-                width: 80px;
-                height: 80px;
-                font-size: 32px;
-            }
         }
 
         .feature-item:hover .feature-icon {
@@ -813,14 +726,6 @@
             line-height: 1.7;
         }
 
-        @media (min-width: 768px) {
-            .expertise-text p {
-                font-size: 16px;
-                line-height: 1.8;
-                margin-bottom: 24px;
-            }
-        }
-
         .expertise-list {
             list-style: none;
         }
@@ -834,22 +739,9 @@
             font-size: 14px;
         }
 
-        @media (min-width: 768px) {
-            .expertise-list li {
-                margin-bottom: 16px;
-                font-size: 16px;
-            }
-        }
-
         .expertise-list i {
             color: var(--gold);
             font-size: 16px;
-        }
-
-        @media (min-width: 768px) {
-            .expertise-list i {
-                font-size: 18px;
-            }
         }
 
         .expertise-image {
@@ -862,12 +754,6 @@
         @media (min-width: 768px) {
             .expertise-image {
                 height: 450px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .expertise-image {
-                height: 500px;
             }
         }
 
@@ -904,13 +790,6 @@
             color: var(--gold);
             opacity: 0.3;
             margin-bottom: 12px;
-        }
-
-        @media (min-width: 768px) {
-            .step-number {
-                font-size: 48px;
-                margin-bottom: 16px;
-            }
         }
 
         .step-item h4 {
@@ -964,28 +843,10 @@
             box-shadow: var(--shadow-hover);
         }
 
-        @media (min-width: 992px) {
-            .blog-card:hover {
-                transform: translateY(-10px);
-            }
-        }
-
         .blog-image {
             height: 200px;
             overflow: hidden;
             position: relative;
-        }
-
-        @media (min-width: 768px) {
-            .blog-image {
-                height: 220px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .blog-image {
-                height: 250px;
-            }
         }
 
         .blog-image img {
@@ -1016,18 +877,6 @@
             padding: 20px;
         }
 
-        @media (min-width: 768px) {
-            .blog-content {
-                padding: 25px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .blog-content {
-                padding: 30px;
-            }
-        }
-
         .blog-meta {
             display: flex;
             gap: 15px;
@@ -1046,18 +895,6 @@
             margin-bottom: 12px;
             color: var(--black);
             line-height: 1.3;
-        }
-
-        @media (min-width: 768px) {
-            .blog-title {
-                font-size: 20px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .blog-title {
-                font-size: 22px;
-            }
         }
 
         .blog-excerpt {
@@ -1091,18 +928,6 @@
             border-top: 1px solid rgba(198, 161, 91, 0.2);
         }
 
-        @media (min-width: 768px) {
-            .footer {
-                padding: 60px 0 25px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .footer {
-                padding: 80px 0 30px;
-            }
-        }
-
         .footer-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1131,19 +956,6 @@
             color: var(--white);
         }
 
-        @media (min-width: 768px) {
-            .footer-logo {
-                font-size: 26px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .footer-logo {
-                font-size: 28px;
-                margin-bottom: 20px;
-            }
-        }
-
         .footer-logo span {
             color: var(--gold);
         }
@@ -1161,14 +973,6 @@
             margin-bottom: 15px;
             position: relative;
             padding-bottom: 8px;
-        }
-
-        @media (min-width: 992px) {
-            .footer-links h4 {
-                font-size: 18px;
-                margin-bottom: 20px;
-                padding-bottom: 12px;
-            }
         }
 
         .footer-links h4::after {
@@ -1218,64 +1022,12 @@
             color: var(--gold);
         }
 
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
-        }
-
-        @media (min-width: 992px) {
-            .social-links {
-                gap: 16px;
-                margin-top: 30px;
-            }
-        }
-
-        .social-links a {
-            color: var(--white);
-            width: 35px;
-            height: 35px;
-            border: 1px solid rgba(198, 161, 91, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        @media (min-width: 768px) {
-            .social-links a {
-                width: 40px;
-                height: 40px;
-            }
-        }
-
-        .social-links a:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: var(--black);
-        }
-
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: #666;
             font-size: 12px;
-        }
-
-        @media (min-width: 768px) {
-            .footer-bottom {
-                padding-top: 25px;
-                font-size: 13px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .footer-bottom {
-                padding-top: 30px;
-            }
         }
 
         /* WhatsApp Float */
@@ -1310,7 +1062,6 @@
 
         .whatsapp-float:hover {
             transform: scale(1.1);
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
         }
 
         /* Admin Panel */
@@ -1320,13 +1071,6 @@
             border-radius: 4px;
             margin: 30px 0;
             display: none;
-        }
-
-        @media (min-width: 768px) {
-            .admin-section {
-                padding: 40px;
-                margin: 40px 0;
-            }
         }
 
         .admin-section.active {
@@ -1367,7 +1111,7 @@
     </style>
 </head>
 <body>
-    <!-- WhatsApp Float Button - Opens WhatsApp on click -->
+    <!-- WhatsApp Float Button -->
     <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'm%20interested%20in%20booking%20a%20desert%20safari." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -1475,7 +1219,7 @@
                         <p>Choose your exclusive desert journey, each crafted for the discerning traveler</p>
                     </div>
                     <div class="experiences-grid">
-                        <!-- Experience 1 - luxury-safari.jpeg -->
+                        <!-- Experience 1 -->
                         <div class="experience-card" onclick="showExperience('private')">
                             <div class="experience-image">
                                 <img src="images/luxury-safari.jpeg" alt="Private Luxury Desert Safari" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1547234935-80c7145ec969?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
@@ -1487,7 +1231,7 @@
                             </div>
                         </div>
 
-                        <!-- Experience 2 - vip-desert.jpeg -->
+                        <!-- Experience 2 -->
                         <div class="experience-card" onclick="showExperience('vip')">
                             <div class="experience-image">
                                 <img src="images/vip-desert.jpeg" alt="Ultra VIP Desert Experience" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
@@ -1499,7 +1243,7 @@
                             </div>
                         </div>
 
-                        <!-- Experience 3 - overnight-desert.jpeg -->
+                        <!-- Experience 3 -->
                         <div class="experience-card" onclick="showExperience('overnight')">
                             <div class="experience-image">
                                 <img src="images/overnight-desert.jpeg" alt="Overnight Royal Desert Escape" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
@@ -1514,48 +1258,42 @@
                 </div>
             </div>
 
-            <!-- Animated Videos from videos folder -->
+            <!-- Videos -->
             <div class="container">
                 <div class="videos-grid">
                     <div class="video-card">
                         <video autoplay loop muted playsinline>
                             <source src="videos/desert-safari-1.mp4" type="video/mp4">
-                            Your browser does not support video.
                         </video>
                         <div class="video-caption">Desert Dunes Adventure</div>
                     </div>
                     <div class="video-card">
                         <video autoplay loop muted playsinline>
                             <source src="videos/desert-safari-2.mp4" type="video/mp4">
-                            Your browser does not support video.
                         </video>
                         <div class="video-caption">Sunset Safari</div>
                     </div>
                     <div class="video-card">
                         <video autoplay loop muted playsinline>
                             <source src="videos/desert-safari-3.mp4" type="video/mp4">
-                            Your browser does not support video.
                         </video>
                         <div class="video-caption">Luxury Camp Experience</div>
                     </div>
                     <div class="video-card">
                         <video autoplay loop muted playsinline>
                             <source src="videos/desert-safari-4.mp4" type="video/mp4">
-                            Your browser does not support video.
                         </video>
                         <div class="video-caption">Arabian Night</div>
                     </div>
                     <div class="video-card">
                         <video autoplay loop muted playsinline>
                             <source src="videos/desert-safari-5.mp4" type="video/mp4">
-                            Your browser does not support video.
                         </video>
                         <div class="video-caption">Desert Adventure</div>
                     </div>
                     <div class="video-card">
                         <video autoplay loop muted playsinline>
                             <source src="videos/desert-safari-6.mp4" type="video/mp4">
-                            Your browser does not support video.
                         </video>
                         <div class="video-caption">Royal Treatment</div>
                     </div>
@@ -1569,9 +1307,7 @@
                         <h2>Desert Stories & Insights</h2>
                         <p>Discover the magic of the desert through our curated blog posts</p>
                     </div>
-                    <div class="blog-grid" id="blogGrid">
-                        <!-- Blog posts will be dynamically loaded here -->
-                    </div>
+                    <div class="blog-grid" id="blogGrid"></div>
                 </div>
             </div>
 
@@ -1584,37 +1320,27 @@
                     </div>
                     <div class="features-grid">
                         <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-crown"></i>
-                            </div>
+                            <div class="feature-icon"><i class="fas fa-crown"></i></div>
                             <h3>Private & VIP Options Only</h3>
                             <p>Exclusively private experiences for your comfort and privacy</p>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
+                            <div class="feature-icon"><i class="fas fa-certificate"></i></div>
                             <h3>Licensed & Trusted Partners</h3>
                             <p>Fully licensed operators with proven track records</p>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-utensils"></i>
-                            </div>
+                            <div class="feature-icon"><i class="fas fa-utensils"></i></div>
                             <h3>Premium Dining Experiences</h3>
                             <p>Gourmet cuisine prepared by expert chefs</p>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
+                            <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
                             <h3>Personalized Concierge Support</h3>
                             <p>Dedicated assistance throughout your journey</p>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
+                            <div class="feature-icon"><i class="fas fa-star"></i></div>
                             <h3>5-Star Service Standards</h3>
                             <p>Luxury hospitality at every touchpoint</p>
                         </div>
@@ -1622,7 +1348,7 @@
                 </div>
             </div>
 
-            <!-- Experience & Expertise with Image 4 -->
+            <!-- Expertise Section -->
             <div class="section expertise-section">
                 <div class="container">
                     <div class="expertise-content">
@@ -1638,7 +1364,7 @@
                             </ul>
                             <p style="margin-top: 20px; color: var(--gold);">Our experience ensures your desert journey is seamless from pickup to drop-off.</p>
                         </div>
-                        <div class="expertise-image" style="background-image: url('images/desert-hero.jpeg'); background-size: cover; background-position: center;" onerror="this.style.backgroundImage='url(https://images.unsplash.com/photo-1518005020951-eccb494ad742?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80)'"></div>
+                        <div class="expertise-image" style="background-image: url('images/desert-hero.jpeg'); background-size: cover; background-position: center;"></div>
                     </div>
                 </div>
             </div>
@@ -1675,16 +1401,16 @@
                 </div>
             </div>
 
-            <!-- Final CTA with WhatsApp -->
+            <!-- Final CTA -->
             <div class="section" style="background: linear-gradient(135deg, var(--gold), var(--light-gold)); padding: 50px 0;">
                 <div class="container" style="text-align: center;">
-                    <h2 style="color: var(--white); margin-bottom: 20px; font-size: 28px;">Your Exclusive Desert Experience Awaits</h2>
+                    <h2 style="color: var(--white); margin-bottom: 20px;">Your Exclusive Desert Experience Awaits</h2>
                     <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'm%20ready%20to%20book%20my%20desert%20adventure." class="btn btn-primary" style="background: var(--black);" target="_blank"><span>BOOK NOW ON WHATSAPP</span></a>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Pages (simplified) -->
+        <!-- Experience Pages -->
         <section class="experience-page" id="private-experience">
             <div class="container">
                 <h1>Private Luxury Desert Safari</h1>
@@ -1790,13 +1516,12 @@
             document.getElementById('navMenu').classList.remove('active');
         }
 
-        // Load blog posts from localStorage
+        // Load blog posts
         function loadBlogPosts() {
             const saved = localStorage.getItem('blogPosts');
             if (saved) {
                 blogPosts = JSON.parse(saved);
             } else {
-                // Default blog posts
                 blogPosts = [
                     {
                         id: 1,
@@ -1804,7 +1529,7 @@
                         category: "Desert Guide",
                         image: "images/desert-hero.jpeg",
                         excerpt: "Everything you need to know about experiencing the magic of Dubai's deserts.",
-                        content: "<p>Dubai's desert offers a unique blend of adventure and luxury. From dune bashing to camel trekking, here's your complete guide.</p><h2>Best Time to Visit</h2><p>The ideal time for desert safari is from October to April when temperatures are pleasant.</p><h2>What to Wear</h2><p>Light, comfortable clothing is recommended. During winter months, bring a light jacket for the evening.</p>",
+                        content: "<p>Dubai's desert offers a unique blend of adventure and luxury.</p>",
                         date: new Date().toLocaleDateString()
                     },
                     {
@@ -1813,16 +1538,16 @@
                         category: "Luxury Travel",
                         image: "images/overnight-desert.jpeg",
                         excerpt: "Experience the ultimate glamping adventure in the Arabian desert.",
-                        content: "<p>Imagine sleeping in a luxury tent with all modern amenities while surrounded by endless dunes.</p><h2>What's Included</h2><p>Our luxury camping experience includes gourmet dining, private tents with AC, and stargazing sessions.</p>",
+                        content: "<p>Imagine sleeping in a luxury tent with all modern amenities.</p>",
                         date: new Date().toLocaleDateString()
                     },
                     {
                         id: 3,
-                        title: "Top 10 Desert Activities for Adventure Seekers",
+                        title: "Top 10 Desert Activities",
                         category: "Adventure",
                         image: "images/vip-desert.jpeg",
                         excerpt: "From dune bashing to sandboarding, discover the best desert adventures.",
-                        content: "<p>The desert is a playground for thrill-seekers. Here are the top activities you shouldn't miss.</p><h2>Dune Bashing</h2><p>Experience the thrill of driving over sand dunes in a 4x4 vehicle.</p><h2>Sandboarding</h2><p>Similar to snowboarding, but on sand dunes - an exhilarating experience!</p>",
+                        content: "<p>The desert is a playground for thrill-seekers.</p>",
                         date: new Date().toLocaleDateString()
                     }
                 ];
@@ -1831,23 +1556,20 @@
             displayBlogPosts();
         }
 
-        // Save blog posts to localStorage
         function saveBlogPosts() {
             localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
         }
 
-        // Display blog posts in grid
         function displayBlogPosts() {
             const grid = document.getElementById('blogGrid');
             if (!grid) return;
-            
             grid.innerHTML = '';
             blogPosts.forEach(post => {
                 const card = document.createElement('div');
                 card.className = 'blog-card';
                 card.innerHTML = `
                     <div class="blog-image">
-                        <img src="${post.image}" alt="${post.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1547234935-80c7145ec969?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        <img src="${post.image}" alt="${post.title}" loading="lazy">
                         <div class="blog-category">${post.category}</div>
                     </div>
                     <div class="blog-content">
@@ -1864,7 +1586,6 @@
             });
         }
 
-        // View single blog post
         function viewBlogPost(id) {
             const post = blogPosts.find(p => p.id === id);
             if (post) {
@@ -1883,26 +1604,21 @@
             }
         }
 
-        // Show blog section
         function showBlogSection() {
             document.getElementById('home').style.display = 'block';
             document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
             document.getElementById('contact').style.display = 'none';
             document.getElementById('singleBlog').style.display = 'none';
             closeMobileMenu();
-            
             setTimeout(() => {
                 document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
             }, 100);
         }
 
-        // Toggle admin panel
         function toggleAdminPanel() {
-            const panel = document.getElementById('adminPanel');
-            panel.classList.toggle('active');
+            document.getElementById('adminPanel').classList.toggle('active');
         }
 
-        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
@@ -1912,7 +1628,6 @@
             }
         });
 
-        // Navigation between pages/sections
         function showExperience(type) {
             document.querySelectorAll('.experience-page').forEach(page => {
                 page.style.display = 'none';
@@ -1920,13 +1635,12 @@
             document.getElementById('home').style.display = 'none';
             document.getElementById('contact').style.display = 'none';
             document.getElementById('singleBlog').style.display = 'none';
-            
             document.getElementById(type + '-experience').style.display = 'block';
             closeMobileMenu();
             window.scrollTo(0, 0);
         }
 
-        // Smooth scroll for navigation
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1943,7 +1657,6 @@
                     document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
                     document.getElementById('contact').style.display = 'none';
                     document.getElementById('singleBlog').style.display = 'none';
-                    
                     setTimeout(() => {
                         document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
                     }, 100);
@@ -1969,11 +1682,6 @@
                     setTimeout(() => {
                         document.getElementById('experiences').scrollIntoView({ behavior: 'smooth' });
                     }, 100);
-                } else {
-                    const target = document.querySelector(targetId);
-                    if (target && document.getElementById('home').style.display !== 'none') {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
                 }
                 closeMobileMenu();
             });
@@ -2011,13 +1719,11 @@
             }, 100);
         });
 
-        // Initialize videos to ensure they play
+        // Initialize videos
         function initVideos() {
             const videos = document.querySelectorAll('video');
             videos.forEach(video => {
-                video.play().catch(() => {
-                    console.log('Video autoplay prevented');
-                });
+                video.play().catch(() => {});
             });
         }
 
@@ -2031,14 +1737,14 @@
         loadBlogPosts();
         initVideos();
 
-        // Double-click to show admin panel
+        // Double-click admin
         document.addEventListener('dblclick', function(e) {
             if (!e.target.closest('input') && !e.target.closest('textarea') && !e.target.closest('button')) {
                 document.getElementById('adminPanel').classList.toggle('active');
             }
         });
 
-        // Close mobile menu when clicking outside
+        // Close mobile menu
         document.addEventListener('click', function(e) {
             const menu = document.getElementById('navMenu');
             const toggle = document.querySelector('.menu-toggle');
