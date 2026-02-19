@@ -97,7 +97,7 @@
             animation: fadeIn 1s ease forwards;
         }
 
-        /* Header - FIXED VERSION WITH BOOK NOW VISIBLE */
+        /* Header - MODIFIED: BOOK NOW REMOVED FROM RIGHT SIDE */
         .header {
             position: fixed;
             top: 0;
@@ -182,7 +182,7 @@
             right: 0;
         }
 
-        /* Desktop styles - BOOK NOW BUTTON VISIBLE HERE */
+        /* Desktop styles - BOOK NOW BUTTON IS NOW REMOVED, only nav links remain */
         @media (min-width: 992px) {
             .nav-menu {
                 position: static;
@@ -196,9 +196,8 @@
                 gap: 20px;
             }
             
-            /* Make ALL items including BOOK NOW visible */
-            .nav-menu .nav-link,
-            .nav-menu .btn-primary {
+            /* Ensure all nav links are visible (Book Now is removed) */
+            .nav-menu .nav-link {
                 display: inline-block;
             }
         }
@@ -247,7 +246,7 @@
             width: 100%;
         }
 
-        /* Book Now Button - FIXED AND VISIBLE */
+        /* Book Now Button - REMOVED FROM HEADER per request, but keeping style for other buttons */
         .btn {
             display: inline-block;
             padding: 8px 16px;
@@ -299,7 +298,7 @@
             z-index: 1;
         }
 
-        /* Mobile menu button style */
+        /* Mobile menu button style - NOT USED IN HEADER ANYMORE */
         .nav-menu .btn-primary {
             display: block;
             width: 100%;
@@ -1132,7 +1131,7 @@
                 <a href="#blog" class="nav-link" onclick="closeMobileMenu()">BLOG</a>
                 <a href="#about" class="nav-link" onclick="closeMobileMenu()">ABOUT</a>
                 <a href="#contact" class="nav-link" onclick="closeMobileMenu()">CONTACT</a>
-                <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'd%20like%20to%20book%20a%20desert%20safari." class="btn btn-primary" target="_blank"><span>BOOK NOW</span></a>
+                <!-- BOOK NOW BUTTON REMOVED FROM HEADER as requested -->
             </nav>
         </div>
     </header>
