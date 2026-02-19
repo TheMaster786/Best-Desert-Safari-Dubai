@@ -188,19 +188,25 @@
             right: 0;
         }
 
-        @media (min-width: 992px) {
-            .nav-menu {
-                position: static;
-                width: auto;
-                height: auto;
-                padding: 0;
-                background: transparent;
-                box-shadow: none;
-                flex-direction: row;
-                align-items: center;
-                gap: 15px;
-            }
-        }
+       @media (min-width: 992px) {
+    .nav-menu {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    /* THIS IS THE IMPORTANT PART - makes Book Now button visible */
+    .nav-menu .btn-primary {
+        display: inline-block !important;
+        margin-left: 10px;
+    }
+}
 
         @media (min-width: 1200px) {
             .nav-menu {
