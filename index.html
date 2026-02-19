@@ -97,7 +97,7 @@
             animation: fadeIn 1s ease forwards;
         }
 
-        /* Header */
+        /* Header - FIXED VERSION */
         .header {
             position: fixed;
             top: 0;
@@ -106,40 +106,43 @@
             background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 15px 0;
+            padding: 12px 0;
             transition: all 0.3s;
             border-bottom: var(--border-light);
         }
 
         .header.scrolled {
-            padding: 10px 0;
+            padding: 8px 0;
             background: rgba(255, 255, 255, 0.98);
         }
 
-       .header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-}
-        .header .btn-primary {
-    white-space: nowrap;
-    padding: 10px 20px;
-    font-size: 12px;
-}
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
 
+        /* Logo */
         .logo-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
             color: var(--black);
             letter-spacing: 1px;
             text-decoration: none;
+            white-space: nowrap;
         }
 
         @media (min-width: 768px) {
             .logo-text {
-                font-size: 28px;
+                font-size: 24px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .logo-text {
+                font-size: 26px;
             }
         }
 
@@ -148,7 +151,7 @@
             font-weight: 700;
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu Toggle */
         .menu-toggle {
             display: block;
             font-size: 24px;
@@ -163,29 +166,23 @@
             }
         }
 
+        /* Navigation Menu - Desktop */
         .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 400px;
-    height: 100vh;
-    background: var(--white);
-    flex-direction: column;
-    padding: 100px 40px 40px;
-    transition: right 0.3s ease;
-    box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-    z-index: 1000;
-    display: flex;
-    gap: 15px;
-}
-
-.nav-menu .btn-primary {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
-}
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--white);
+            flex-direction: column;
+            padding: 100px 40px 40px;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            gap: 20px;
+        }
 
         .nav-menu.active {
             right: 0;
@@ -200,42 +197,39 @@
                 background: transparent;
                 box-shadow: none;
                 flex-direction: row;
+                align-items: center;
                 gap: 15px;
             }
         }
-        
-        @media (min-width: 992px) {
-    .nav-menu .btn-primary {
-        display: inline-block;
-    }
-}
+
         @media (min-width: 1200px) {
             .nav-menu {
-                gap: 25px;
+                gap: 20px;
             }
         }
 
+        /* Navigation Links */
         .nav-link {
             color: var(--black);
             text-decoration: none;
-            font-weight: 400;
-            font-size: 18px;
-            letter-spacing: 1px;
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: 0.5px;
             text-transform: uppercase;
             transition: color 0.3s;
             position: relative;
-            display: inline-block;
+            white-space: nowrap;
         }
 
         @media (min-width: 992px) {
             .nav-link {
-                font-size: 14px;
+                font-size: 13px;
             }
         }
 
         @media (min-width: 1200px) {
             .nav-link {
-                font-size: 15px;
+                font-size: 14px;
             }
         }
 
@@ -259,12 +253,13 @@
             color: var(--gold);
         }
 
+        /* Book Now Button - FIXED */
         .btn {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 8px 16px;
             text-decoration: none;
-            font-weight: 500;
-            letter-spacing: 1.5px;
+            font-weight: 600;
+            letter-spacing: 1px;
             text-transform: uppercase;
             font-size: 12px;
             transition: all 0.4s;
@@ -272,24 +267,25 @@
             border: none;
             background: transparent;
             text-align: center;
+            white-space: nowrap;
         }
 
         @media (min-width: 768px) {
             .btn {
-                padding: 14px 30px;
+                padding: 10px 20px;
                 font-size: 12px;
             }
         }
 
         @media (min-width: 992px) {
             .btn {
-                padding: 16px 32px;
+                padding: 10px 22px;
             }
         }
 
         @media (min-width: 1200px) {
             .btn {
-                padding: 16px 40px;
+                padding: 12px 24px;
                 font-size: 13px;
             }
         }
@@ -299,6 +295,7 @@
             color: var(--white);
             position: relative;
             overflow: hidden;
+            border-radius: 4px;
         }
 
         .btn-primary::before {
@@ -320,6 +317,23 @@
         .btn-primary span {
             position: relative;
             z-index: 1;
+        }
+
+        /* Make Book Now button visible in desktop menu */
+        @media (min-width: 992px) {
+            .nav-menu .btn-primary {
+                display: inline-block;
+                margin-left: 5px;
+            }
+        }
+
+        /* Book Now button in mobile menu */
+        .nav-menu .btn-primary {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 10px;
+            padding: 12px 20px;
         }
 
         .btn-outline {
