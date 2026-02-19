@@ -122,32 +122,19 @@
             align-items: center;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 40px;
-            width: auto;
-            max-width: 150px;
-            object-fit: contain;
-        }
-
-        @media (min-width: 768px) {
-            .logo-img {
-                height: 50px;
-            }
-        }
-
         .logo-text {
             font-family: 'Cormorant Garamond', serif;
             font-size: 24px;
             font-weight: 600;
             color: var(--black);
             letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        @media (min-width: 768px) {
+            .logo-text {
+                font-size: 28px;
+            }
         }
 
         .logo-text span {
@@ -200,6 +187,12 @@
                 background: transparent;
                 box-shadow: none;
                 flex-direction: row;
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .nav-menu {
                 gap: 48px;
             }
         }
@@ -218,8 +211,17 @@
 
         @media (min-width: 992px) {
             .nav-link {
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .nav-link {
                 font-size: 15px;
             }
+        }
+
+        @media (min-width: 992px) {
             .nav-link::after {
                 content: '';
                 position: absolute;
@@ -241,7 +243,7 @@
 
         .btn {
             display: inline-block;
-            padding: 14px 30px;
+            padding: 12px 24px;
             text-decoration: none;
             font-weight: 500;
             letter-spacing: 1.5px;
@@ -255,6 +257,19 @@
         }
 
         @media (min-width: 768px) {
+            .btn {
+                padding: 14px 30px;
+                font-size: 12px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .btn {
+                padding: 16px 32px;
+            }
+        }
+
+        @media (min-width: 1200px) {
             .btn {
                 padding: 16px 40px;
                 font-size: 13px;
@@ -1155,6 +1170,16 @@
             width: 20px;
         }
 
+        .footer-contact a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--gold);
+        }
+
         .social-links {
             display: flex;
             gap: 12px;
@@ -1312,10 +1337,7 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="container">
-            <a href="#" class="logo" id="homeLink">
-                <img src="images/logo.jpeg" alt="Desert Safari World Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span class="logo-text" style="display: none;">Desert Safari <span>World</span></span>
-            </a>
+            <a href="#" class="logo-text" id="homeLink">Desert Safari <span>World</span></a>
             
             <!-- Mobile Menu Toggle -->
             <div class="menu-toggle" onclick="toggleMobileMenu()">
@@ -1323,19 +1345,19 @@
             </div>
             
             <nav class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link" onclick="closeMobileMenu()">Home</a>
-                <a href="#experiences" class="nav-link" onclick="closeMobileMenu()">Experiences</a>
-                <a href="#blog" class="nav-link" onclick="closeMobileMenu()">Blog</a>
-                <a href="#about" class="nav-link" onclick="closeMobileMenu()">About</a>
-                <a href="#contact" class="nav-link" onclick="closeMobileMenu()">Contact</a>
-                <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'd%20like%20to%20book%20a%20desert%20safari." class="btn btn-primary" target="_blank"><span>Book Now</span></a>
+                <a href="#home" class="nav-link" onclick="closeMobileMenu()">HOME</a>
+                <a href="#experiences" class="nav-link" onclick="closeMobileMenu()">EXPERIENCES</a>
+                <a href="#blog" class="nav-link" onclick="closeMobileMenu()">BLOG</a>
+                <a href="#about" class="nav-link" onclick="closeMobileMenu()">ABOUT</a>
+                <a href="#contact" class="nav-link" onclick="closeMobileMenu()">CONTACT</a>
+                <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'd%20like%20to%20book%20a%20desert%20safari." class="btn btn-primary" target="_blank"><span>BOOK NOW</span></a>
             </nav>
         </div>
     </header>
 
     <!-- Admin Toggle -->
     <div class="admin-toggle">
-        <button class="admin-toggle-btn" id="adminToggleBtn" onclick="toggleAdminPanel()">Admin: New Blog Post</button>
+        <button class="admin-toggle-btn" id="adminToggleBtn" onclick="toggleAdminPanel()">ADMIN: NEW BLOG POST</button>
     </div>
 
     <!-- Admin Blog Post Form -->
@@ -1385,8 +1407,8 @@
                         <h1>Experience the Best Desert Safari in Dubai</h1>
                         <p>Private. Exclusive. Unforgettable desert safari adventures curated for luxury travelers.</p>
                         <div class="hero-buttons">
-                            <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'd%20like%20to%20book%20a%20private%20desert%20safari." class="btn btn-primary" target="_blank"><span>Book Your Private Safari</span></a>
-                            <a href="#experiences" class="btn btn-outline">View Experiences</a>
+                            <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'd%20like%20to%20book%20a%20private%20desert%20safari." class="btn btn-primary" target="_blank"><span>BOOK YOUR PRIVATE SAFARI</span></a>
+                            <a href="#experiences" class="btn btn-outline">VIEW EXPERIENCES</a>
                         </div>
                     </div>
                 </div>
@@ -1619,7 +1641,7 @@
             <div class="section" style="background: linear-gradient(135deg, var(--gold), var(--light-gold)); padding: 50px 0;">
                 <div class="container" style="text-align: center;">
                     <h2 style="color: var(--white); margin-bottom: 20px; font-size: 28px;">Your Exclusive Desert Experience Awaits</h2>
-                    <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'm%20ready%20to%20book%20my%20desert%20adventure." class="btn btn-primary" style="background: var(--black);" target="_blank"><span>Book Now on WhatsApp</span></a>
+                    <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'm%20ready%20to%20book%20my%20desert%20adventure." class="btn btn-primary" style="background: var(--black);" target="_blank"><span>BOOK NOW ON WHATSAPP</span></a>
                 </div>
             </div>
         </section>
@@ -1629,7 +1651,7 @@
             <div class="container">
                 <h1>Private Luxury Desert Safari</h1>
                 <p style="margin: 30px 0;">Experience the ultimate private desert adventure with VIP treatment throughout.</p>
-                <a href="https://wa.me/971505167381?text=Hello%2C%20I'm%20interested%20in%20the%20Private%20Luxury%20Desert%20Safari." class="btn btn-primary" target="_blank"><span>Book via WhatsApp</span></a>
+                <a href="https://wa.me/971505167381?text=Hello%2C%20I'm%20interested%20in%20the%20Private%20Luxury%20Desert%20Safari." class="btn btn-primary" target="_blank"><span>BOOK VIA WHATSAPP</span></a>
             </div>
         </section>
 
@@ -1637,7 +1659,7 @@
             <div class="container">
                 <h1>Ultra VIP Desert Experience</h1>
                 <p style="margin: 30px 0;">The pinnacle of desert luxury with exclusive service and premium amenities.</p>
-                <a href="https://wa.me/971505167381?text=Hello%2C%20I'm%20interested%20in%20the%20Ultra%20VIP%20Desert%20Experience." class="btn btn-primary" target="_blank"><span>Book via WhatsApp</span></a>
+                <a href="https://wa.me/971505167381?text=Hello%2C%20I'm%20interested%20in%20the%20Ultra%20VIP%20Desert%20Experience." class="btn btn-primary" target="_blank"><span>BOOK VIA WHATSAPP</span></a>
             </div>
         </section>
 
@@ -1645,7 +1667,7 @@
             <div class="container">
                 <h1>Overnight Royal Desert Escape</h1>
                 <p style="margin: 30px 0;">Sleep under the stars in luxury with our exclusive overnight package.</p>
-                <a href="https://wa.me/971505167381?text=Hello%2C%20I'm%20interested%20in%20the%20Overnight%20Royal%20Desert%20Escape." class="btn btn-primary" target="_blank"><span>Book via WhatsApp</span></a>
+                <a href="https://wa.me/971505167381?text=Hello%2C%20I'm%20interested%20in%20the%20Overnight%20Royal%20Desert%20Escape." class="btn btn-primary" target="_blank"><span>BOOK VIA WHATSAPP</span></a>
             </div>
         </section>
 
@@ -1663,7 +1685,7 @@
                 <img src="" alt="Blog Featured Image" class="blog-featured-image" id="blogImageDisplay" style="width: 100%; max-height: 500px; object-fit: cover; margin: 30px 0;">
                 <div class="blog-content-full" id="blogContentDisplay"></div>
                 <div class="blog-navigation">
-                    <a href="#" class="blog-nav-link" onclick="showBlogSection()"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+                    <a href="#" class="blog-nav-link" onclick="showBlogSection()"><i class="fas fa-arrow-left"></i> BACK TO BLOG</a>
                 </div>
             </div>
         </div>
@@ -1677,7 +1699,7 @@
                 </div>
                 <div style="text-align: center; margin: 40px 0;">
                     <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I%20have%20a%20question." class="btn btn-primary" style="font-size: 18px; padding: 20px 40px;" target="_blank">
-                        <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> Chat on WhatsApp
+                        <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> CHAT ON WHATSAPP
                     </a>
                 </div>
             </div>
@@ -1694,20 +1716,20 @@
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
-                    <a href="#about">About Us</a>
-                    <a href="#experiences">Experiences</a>
-                    <a href="#blog">Blog</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#about">ABOUT US</a>
+                    <a href="#experiences">EXPERIENCES</a>
+                    <a href="#blog">BLOG</a>
+                    <a href="#contact">CONTACT</a>
                 </div>
                 <div class="footer-links">
                     <h4>Experiences</h4>
-                    <a href="#" onclick="showExperience('private')">Private Luxury Safari</a>
-                    <a href="#" onclick="showExperience('vip')">Ultra VIP Experience</a>
-                    <a href="#" onclick="showExperience('overnight')">Overnight Escape</a>
+                    <a href="#" onclick="showExperience('private')">PRIVATE LUXURY SAFARI</a>
+                    <a href="#" onclick="showExperience('vip')">ULTRA VIP EXPERIENCE</a>
+                    <a href="#" onclick="showExperience('overnight')">OVERNIGHT ESCAPE</a>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact</h4>
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/971505167381" style="color: #aaa; text-decoration: none;">+971 50 516 7381</a></p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/971505167381">+971 50 516 7381</a></p>
                     <p><i class="far fa-envelope"></i> bookings@desertsafariworld.com</p>
                 </div>
             </div>
@@ -1797,7 +1819,7 @@
                         </div>
                         <h3 class="blog-title">${post.title}</h3>
                         <p class="blog-excerpt">${post.excerpt}</p>
-                        <a href="#" class="blog-link" onclick="viewBlogPost(${post.id}); return false;">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="blog-link" onclick="viewBlogPost(${post.id}); return false;">READ MORE <i class="fas fa-arrow-right"></i></a>
                     </div>
                 `;
                 grid.appendChild(card);
@@ -1893,6 +1915,22 @@
                     document.getElementById('contact').style.display = 'block';
                     document.getElementById('singleBlog').style.display = 'none';
                     window.scrollTo(0, 0);
+                } else if (targetId === '#about') {
+                    document.getElementById('home').style.display = 'block';
+                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
+                    document.getElementById('contact').style.display = 'none';
+                    document.getElementById('singleBlog').style.display = 'none';
+                    setTimeout(() => {
+                        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                } else if (targetId === '#experiences') {
+                    document.getElementById('home').style.display = 'block';
+                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
+                    document.getElementById('contact').style.display = 'none';
+                    document.getElementById('singleBlog').style.display = 'none';
+                    setTimeout(() => {
+                        document.getElementById('experiences').scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
                 } else {
                     const target = document.querySelector(targetId);
                     if (target && document.getElementById('home').style.display !== 'none') {
@@ -1940,19 +1978,9 @@
             const videos = document.querySelectorAll('video');
             videos.forEach(video => {
                 video.play().catch(() => {
-                    // Autoplay was prevented, but we'll keep muted attribute
                     console.log('Video autoplay prevented');
                 });
             });
-        }
-
-        // Logo fallback
-        const logoImg = document.querySelector('.logo-img');
-        if (logoImg) {
-            logoImg.onerror = function() {
-                this.style.display = 'none';
-                this.nextElementSibling.style.display = 'block';
-            };
         }
 
         // Initialize
