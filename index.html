@@ -120,23 +120,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 15px;
+            gap: 10px; /* Reduced gap */
         }
 
-        /* Logo */
+        /* Logo - slightly smaller to save space */
         .logo-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
+            font-size: 20px; /* Reduced from 22px */
             font-weight: 600;
             color: var(--black);
-            letter-spacing: 1px;
+            letter-spacing: 0.5px; /* Reduced from 1px */
             text-decoration: none;
             white-space: nowrap;
         }
 
         @media (min-width: 768px) {
             .logo-text {
-                font-size: 24px;
+                font-size: 22px; /* Slightly smaller */
             }
         }
 
@@ -160,7 +160,7 @@
             }
         }
 
-        /* Navigation Menu - MODIFIED: Packages moved to left side */
+        /* Navigation Menu - MODIFIED: All tabs now fit with CONTACT visible */
         .nav-menu {
             position: fixed;
             top: 0;
@@ -182,7 +182,7 @@
             right: 0;
         }
 
-        /* Desktop styles - All nav links on left */
+        /* Desktop styles - All nav links on left with tighter spacing */
         @media (min-width: 992px) {
             .nav-menu {
                 position: static;
@@ -193,8 +193,8 @@
                 box-shadow: none;
                 flex-direction: row;
                 align-items: center;
-                gap: 20px;
-                margin-left: 20px;
+                gap: 12px; /* Reduced from 20px to fit all tabs */
+                margin-left: 10px; /* Reduced from 20px */
             }
             
             .nav-menu .nav-link {
@@ -202,13 +202,13 @@
             }
         }
 
-        /* Navigation Links */
+        /* Navigation Links - smaller font to fit all tabs */
         .nav-link {
             color: var(--black);
             text-decoration: none;
             font-weight: 500;
-            font-size: 14px;
-            letter-spacing: 0.5px;
+            font-size: 12px; /* Reduced from 14px */
+            letter-spacing: 0.3px; /* Reduced from 0.5px */
             text-transform: uppercase;
             transition: color 0.3s;
             position: relative;
@@ -218,13 +218,19 @@
 
         @media (min-width: 992px) {
             .nav-link {
-                font-size: 13px;
+                font-size: 11px; /* Smaller for desktop */
             }
         }
 
         @media (min-width: 1200px) {
             .nav-link {
-                font-size: 14px;
+                font-size: 12px; /* Still smaller than original */
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .nav-link {
+                font-size: 13px; /* Slightly larger on very big screens */
             }
         }
 
@@ -1150,7 +1156,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header - MODIFIED: Packages moved between logo and HOME -->
+    <!-- Header - MODIFIED: All tabs visible including CONTACT -->
     <header class="header" id="header">
         <div class="container">
             <a href="#" class="logo-text" onclick="showHomeSection(); return false;">Desert Safari <span>World</span></a>
@@ -1161,14 +1167,14 @@
             </div>
             
             <nav class="nav-menu" id="navMenu">
-                <!-- DUBAI PACKAGES moved here, between logo and HOME -->
+                <!-- DUBAI PACKAGES first, then HOME, then rest - ALL TABS INCLUDING CONTACT -->
                 <a href="#" class="nav-link packages-link" onclick="showPackagesPage(); closeMobileMenu(); return false;">DUBAI PACKAGES</a>
                 <a href="#" class="nav-link" onclick="showHomeSection(); closeMobileMenu(); return false;">HOME</a>
                 <a href="#" class="nav-link" onclick="showHomeSectionAndScroll('experiences'); closeMobileMenu(); return false;">EXPERIENCES</a>
                 <a href="#" class="nav-link" onclick="showHomeSectionAndScroll('blog'); closeMobileMenu(); return false;">BLOG</a>
                 <a href="#" class="nav-link" onclick="showHomeSectionAndScroll('about'); closeMobileMenu(); return false;">ABOUT</a>
                 <a href="#" class="nav-link" onclick="showContactSection(); closeMobileMenu(); return false;">CONTACT</a>
-                <!-- BOOK NOW button removed from navigation -->
+                <!-- BOOK NOW button removed -->
             </nav>
         </div>
     </header>
