@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desert Safari World · Dubai tours</title>
+    <!-- Font Awesome 6 (free) for star ratings & icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f8f4ec 0%, #f0e9db 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-wrapper {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* header / title */
+        .brand-head {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .brand-head h1 {
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: #7d5d3a;
+            text-transform: uppercase;
+            background: rgba(255,245,225,0.6);
+            display: inline-block;
+            padding: 0.3rem 3rem;
+            border-radius: 60px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            backdrop-filter: blur(3px);
+        }
+        .brand-head h1 span {
+            font-weight: 700;
+            color: #b45f2b;
+        }
+
+        /* package grid — 3 classic plans */
+        .package-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+
+        .package-card {
+            flex: 1 1 280px;
+            max-width: 350px;
+            background: white;
+            border-radius: 40px 40px 30px 30px;
+            box-shadow: 0 25px 40px -10px rgba(92, 62, 32, 0.25);
+            transition: all 0.2s ease;
+            overflow: hidden;
+            border: 1px solid rgba(255,245,215,0.7);
+            backdrop-filter: blur(2px);
+            display: flex;
+            flex-direction: column;
+        }
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 55px -8px #8365458c;
+        }
+
+        /* image area for each plan — name pattern: package-basic.jpg etc */
+        .card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-color: #dac09a;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 10px;
+        }
+        .img-basic {
+            background-image: url('./packages/package-basic.jpeg'); 
+            background-blend-mode: overlay;
+        }
+        .img-advance {
+            background-image: url('./packages/package-advance.jpeg');
+        }
+        .img-premium {
+            background-image: url('./packages/package-premium.jpeg');
+        }
+        /* fallback color + subtle gradient */
+        .card-img::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.25) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .price-tag {
+            background: #d9b382;
+            color: #2d2d2d;
+            font-weight: 700;
+            font-size: 1.4rem;
+            padding: 0.25rem 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px #422e1e33;
+            z-index: 2;
+            margin-left: auto;
+            border: 2px solid #ffe1b3;
+        }
+
+        .card-content {
+            padding: 1.8rem 1.5rem 1.8rem;
+            background: #fffcf6;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-content h2 {
+            font-size: 1.9rem;
+            font-weight: 400;
+            color: #5f3f25;
+            line-height: 1.2;
+            border-left: 6px solid #c38e5f;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        .details-list {
+            list-style: none;
+            margin: 0 0 20px 0;
+            flex: 1;
+        }
+        .details-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+            font-size: 1rem;
+            color: #3f2e1e;
+        }
+        .details-list i {
+            width: 22px;
+            color: #b87c4b;
+            font-size: 1.2rem;
+        }
+        .details-list strong {
+            font-weight: 600;
+            color: #6e4e2e;
+        }
+        .book-btn {
+            background: #ab6d3b;
+            border: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 1rem 0;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.15s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 12px;
+            border: 1px solid #dc9e67;
+            box-shadow: 0 8px 18px #c1844d55;
+        }
+        .book-btn:hover {
+            background: #8f572b;
+            transform: scale(1.02);
+        }
+
+        /* ----- MOST SELLING TOURS (horizontal grid) ----- */
+        .section-title {
+            font-size: 2.7rem;
+            font-weight: 300;
+            color: #4a3a28;
+            margin: 3rem 0 1.5rem;
+            text-align: center;
+            border-bottom: 3px dashed #bca88b;
+            padding-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .section-title span {
+            background: #be8b5c;
+            color: white;
+            padding: 0.2rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .selling-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 25px;
+            margin: 2rem 0 4rem;
+        }
+
+        .tour-card {
+            background: #fffcf2;
+            border-radius: 30px;
+            box-shadow: 0 15px 30px rgba(97, 68, 38, 0.15);
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eedbc0;
+            overflow: hidden;
+        }
+        .tour-card:hover {
+            box-shadow: 0 25px 40px -8px #846947b3;
+        }
+
+        .tour-img {
+            height: 190px;
+            background-size: cover;
+            background-position: center;
+            background-color: #cbad85;
+            position: relative;
+        }
+        /* images for selling tours — use names as described */
+        .img-morning { background-image: url('./packages/morning-desert.jpeg'); }
+        .img-sightseeing { background-image: url('./packages/sightseeing-dubai.jpeg'); }
+        .img-abu { background-image: url('./packages/abu-dhabi-full.jpeg'); }
+        .img-hatta { background-image: url('./packages/hatta-half.jpeg'); }
+        .img-buggy4 { background-image: url('./packages/buggy-4seat.jpeg'); }
+        .img-buggy2 { background-image: url('./packages/buggy-2seat.jpeg'); }
+
+        .rating {
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            background: #1e1e1ed9;
+            color: #ffd966;
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+            border: 1px solid #ffeba0;
+        }
+        .rating i {
+            margin-right: 4px;
+            color: #f5c45e;
+        }
+
+        .tour-content {
+            padding: 1.5rem 1.2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .tour-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .tour-title h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #3d2b18;
+            max-width: 180px;
+        }
+        .tour-price {
+            background: #a96f3d;
+            color: white;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .tour-features {
+            list-style: none;
+            margin: 0.7rem 0 1.3rem;
+            flex: 1;
+        }
+        .tour-features li {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 11px;
+            color: #4d3924;
+            font-size: 0.95rem;
+        }
+        .tour-features i {
+            color: #9f774b;
+            width: 20px;
+            font-size: 1rem;
+        }
+        .tour-btn {
+            background: transparent;
+            border: 2px solid #ab6d3b;
+            color: #ab6d3b;
+            font-weight: 600;
+            padding: 0.7rem 0;
+            border-radius: 40px;
+            transition: 0.2s;
+            cursor: pointer;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+        }
+        .tour-btn:hover {
+            background: #ab6d3b;
+            color: white;
+        }
+
+        /* Instructions / fine print area */
+        .info-panel {
+            display: flex;
+            flex-wrap: wrap;
+            background: #352d22e0;
+            color: #f9eedb;
+            border-radius: 50px;
+            padding: 2rem 2rem;
+            margin: 4rem 0 2rem;
+            backdrop-filter: blur(6px);
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            font-size: 1.1rem;
+            flex-wrap: wrap;
+        }
+        .info-item i {
+            font-size: 2.2rem;
+            color: #f8c49c;
+        }
+
+        .buffet-mini {
+            background: #fcf2e6;
+            padding: 1.5rem 2rem;
+            border-radius: 40px;
+            color: #3d2e1d;
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            border: 2px solid #ebcba0;
+        }
+        .buffet-col p {
+            font-weight: 700;
+            color: #815e3b;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        .buffet-col ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 25px;
+            list-style: none;
+        }
+        .buffet-col li {
+            background: #e2cfb3;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            color: #2f2215;
+        }
+
+        /* responsive */
+        @media (max-width: 700px) {
+            .brand-head h1 { font-size: 2rem; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- main header -->
+    <div class="brand-head">
+        <h1><span>Desert</span> Safari World</h1>
+        <p style="color: #684f37; margin-top: 5px;">· dubai · adventure · since 2012 ·</p>
+    </div>
+
+    <!-- 3 core packages with images (basic / advance / premium) -->
+    <div class="package-row">
+        <!-- basic -->
+        <div class="package-card">
+            <div class="card-img img-basic">
+                <span class="price-tag">AED 59</span>
+            </div>
+            <div class="card-content">
+                <h2>Basic<br>Package</h2>
+                <ul class="details-list">
+                    <li><i class="fas fa-clock"></i> <strong>06:00–07:00</strong> pickup</li>
+                    <li><i class="fas fa-bus"></i> Centralized points · Bus</li>
+                    <li><i class="fas fa-dune-buggy"></i> Dune bashing, camel ride</li>
+                    <li><i class="fas fa-film"></i> 5 shows · BBQ dinner</li>
+                </ul>
+                <button class="book-btn">Book Now</button>
+            </div>
+        </div>
+        <!-- advance -->
+        <div class="package-card">
+            <div class="card-img img-advance">
+                <span class="price-tag">AED 99</span>
+            </div>
+            <div class="card-content">
+                <h2>Advance<br>Package</h2>
+                <ul class="details-list">
+                    <li><i class="fas fa-clock"></i> <strong>06:00–07:00</strong> pickup</li>
+                    <li><i class="fas fa-house-user"></i> Home/hotel · 4x4 SUV</li>
+                    <li><i class="fas fa-dune-buggy"></i> Dune bashing, camel ride</li>
+                    <li><i class="fas fa-film"></i> 5 shows · unlimited BBQ</li>
+                </ul>
+                <button class="book-btn">Book Now</button>
+            </div>
+        </div>
+        <!-- premium -->
+        <div class="package-card">
+            <div class="card-img img-premium">
+                <span class="price-tag">AED 199</span>
+            </div>
+            <div class="card-content">
+                <h2>Premium<br>Package</h2>
+                <ul class="details-list">
+                    <li><i class="fas fa-clock"></i> <strong>06:00–07:00</strong> pickup</li>
+                    <li><i class="fas fa-house-user"></i> Home/hotel · 4x4 SUV</li>
+                    <li><i class="fas fa-motorcycle"></i> ATV bike + dune bashing</li>
+                    <li><i class="fas fa-utensils"></i> camel ride, shows, BBQ</li>
+                </ul>
+                <button class="book-btn">Book Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- === Most Selling Tours title (with star rating) === -->
+    <div class="section-title">
+        ⏤  MOST SELLING TOURS  ⏤
+        <span><i class="fas fa-star" style="color: #fde16d;"></i> 5/5  rated</span>
+    </div>
+
+    <!-- Selling tours grid (6 cards) images follow the naming pattern below -->
+    <div class="selling-grid">
+
+        <!-- 1. Morning Desert Safari -->
+        <div class="tour-card">
+            <div class="tour-img img-morning">
+                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5/5</div>
+            </div>
+            <div class="tour-content">
+                <div class="tour-title">
+                    <h3>Morning Desert Safari</h3>
+                    <span class="tour-price">AED 150</span>
+                </div>
+                <ul class="tour-features">
+                    <li><i class="fas fa-clock"></i> 04:00–05:00 · home/hotel pickup</li>
+                    <li><i class="fas fa-car-side"></i> shared 4x4 SUV</li>
+                    <li><i class="fas fa-camel"></i> dune bashing, camel ride, sandboard, photo points</li>
+                </ul>
+                <button class="tour-btn">Book Now</button>
+            </div>
+        </div>
+
+        <!-- 2. Sightseeing Dubai City Tour -->
+        <div class="tour-card">
+            <div class="tour-img img-sightseeing">
+                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5/5</div>
+            </div>
+            <div class="tour-content">
+                <div class="tour-title">
+                    <h3>Sightseeing Dubai City</h3>
+                    <span class="tour-price">AED 119</span>
+                </div>
+                <ul class="tour-features">
+                    <li><i class="fas fa-clock"></i> 04:00–05:00 · home/hotel</li>
+                    <li><i class="fas fa-car"></i> shared car · tour guide</li>
+                    <li><i class="fas fa-camera"></i> incredible photo points, half day</li>
+                </ul>
+                <button class="tour-btn">Book Now</button>
+            </div>
+        </div>
+
+        <!-- 3. Full Day Abu Dhabi City Tour -->
+        <div class="tour-card">
+            <div class="tour-img img-abu">
+                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5/5</div>
+            </div>
+            <div class="tour-content">
+                <div class="tour-title">
+                    <h3>Full Day Abu Dhabi</h3>
+                    <span class="tour-price">AED 150</span>
+                </div>
+                <ul class="tour-features">
+                    <li><i class="fas fa-clock"></i> 07:00–08:00 · pickup home/hotel</li>
+                    <li><i class="fas fa-car-side"></i> shared 4x4 · Shaikh Zayed Mosque</li>
+                    <li><i class="fas fa-landmark"></i> Yas Island, Presidential Palace</li>
+                </ul>
+                <button class="tour-btn">Book Now</button>
+            </div>
+        </div>
+
+        <!-- 4. Half Day Hatta Tour -->
+        <div class="tour-card">
+            <div class="tour-img img-hatta">
+                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5/5</div>
+            </div>
+            <div class="tour-content">
+                <div class="tour-title">
+                    <h3>Half Day Hatta Tour</h3>
+                    <span class="tour-price">AED 150</span>
+                </div>
+                <ul class="tour-features">
+                    <li><i class="fas fa-clock"></i> 05:00–06:00 · home/hotel</li>
+                    <li><i class="fas fa-car-side"></i> shared 4x4 · Hatta Dam</li>
+                    <li><i class="fas fa-mountain"></i> heritage village, hill park, Hajar mtns</li>
+                </ul>
+                <button class="tour-btn">Book Now</button>
+            </div>
+        </div>
+
+        <!-- 5. 4 Seater Polaris RZR 1000cc Buggy -->
+        <div class="tour-card">
+            <div class="tour-img img-buggy4">
+                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5/5</div>
+            </div>
+            <div class="tour-content">
+                <div class="tour-title">
+                    <h3>4 Seater RZR Buggy</h3>
+                    <span class="tour-price">AED 1000</span>
+                </div>
+                <ul class="tour-features">
+                    <li><i class="fas fa-clock"></i> 30 min+ · private 4x4 pickup</li>
+                    <li><i class="fas fa-flag-checkered"></i> self-drive desert, morning/evening</li>
+                    <li><i class="fas fa-car-side"></i> home/hotel included</li>
+                </ul>
+                <button class="tour-btn">Book Now</button>
+            </div>
+        </div>
+
+        <!-- 6. 2 Seater Polaris RZR 1000cc Buggy -->
+        <div class="tour-card">
+            <div class="tour-img img-buggy2">
+                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 5/5</div>
+            </div>
+            <div class="tour-content">
+                <div class="tour-title">
+                    <h3>2 Seater RZR Buggy</h3>
+                    <span class="tour-price">AED 800</span>
+                </div>
+                <ul class="tour-features">
+                    <li><i class="fas fa-clock"></i> 30 min+ · private 4x4 pickup</li>
+                    <li><i class="fas fa-flag-checkered"></i> self-drive desert, times available</li>
+                    <li><i class="fas fa-key"></i> explore arabian desert</li>
+                </ul>
+                <button class="tour-btn">Book Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Instructions & timing panel (from second image) -->
+    <div class="info-panel">
+        <div class="info-item"><i class="fas fa-hourglass-half"></i> Pickup 2:00–2:30PM · Drop 9:00–9:30PM · ~6hrs</div>
+        <div class="info-item"><i class="fas fa-calendar-check"></i> book 3h prior · cancel 24h before</div>
+        <div class="info-item"><i class="fas fa-child"></i> Kids 0-3 free · above 3 full price</div>
+        <div class="info-item"><i class="fas fa-euro-sign"></i> prices subject to change</div>
+    </div>
+
+    <!-- Buffet menu (from third image) elegantly displayed -->
+    <div class="buffet-mini">
+        <div class="buffet-col">
+            <p>🍴 Desserts & starters</p>
+            <ul>
+                <li>Custard / Mix Fruits</li><li>Falafel</li><li>Lukumat Sweets</li><li>Veg Samosa</li><li>Chicken Tikka</li><li>Mutton Kebab</li><li>Chicken Shish Tawouk</li>
+            </ul>
+        </div>
+        <div class="buffet-col">
+            <p>🔥 BBQ & salads</p>
+            <ul>
+                <li>Beans</li><li>Fatoush</li><li>Hummus</li><li>Coleslaw</li><li>Pasta Salad</li><li>Russian Salad</li>
+            </ul>
+        </div>
+        <div class="buffet-col">
+            <p>🍛 main & rice</p>
+            <ul>
+                <li>Noodles</li><li>Biryani Rice</li><li>Daal (lentils)</li><li>Vegetable Sultae</li><li>Steam White Rice</li><li>Chana Masala</li><li>Mix Vegetables Curry</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- tiny footer note -->
+    <div style="text-align: center; margin-top: 3rem; opacity: 0.7; color: #5c4b36;">
+        <i class="fas fa-crown"></i> Dubai desert experience · all tours include BBQ buffet & shows where specified
+    </div>
+
+</div>
+
+<!-- prompt for image generation (visible as comment / hidden note) -->
+<!-- 
+    ========== IMAGE GENERATION PROMPT (use with AI image generator) ==========
+    Create stunning, high-resolution JPEG images for each tour package with the following names.
+    Save them in the "packages" folder (same as html). 
+    Suggested style: warm golden hour lighting, clear blue sky, luxurious middle eastern desert vibe, modern vehicles, smiling guests.
+
+    File names & subject:
+    - package-basic.jpeg     : group of tourists boarding a modern bus near desert camp, sunset, palm trees.
+    - package-advance.jpeg   : red 4x4 SUV dune bashing kicking up sand, action shot, couple inside.
+    - package-premium.jpeg   : quad bike (ATV) rider on sand dune, premium camp in background, golden light.
+    - morning-desert.jpeg    : early morning sunlight on dunes with camels and 4x4 cars parked, soft shadows.
+    - sightseeing-dubai.jpeg : dubai skyline (burj khalifa distant) and traditional abra boat, modern city tour vibe.
+    - abu-dhabi-full.jpeg    : sheikh zayed mosque white domes, luxury car on corniche, clear sky.
+    - hatta-half.jpeg        : hatta dam turquoise water, rugged hajar mountains, heritage village old stone.
+    - buggy-4seat.jpeg       : polaris rzr 1000cc 4-seater buggy parked on dune, two people waving.
+    - buggy-2seat.jpeg       : 2-seater rzr buggy speeding across desert, late afternoon light, dust trail.
+    Prompt extension: "Photorealistic, 8k, detailed texture, sunny, inviting, luxury travel, uae desert atmosphere"
+    =================================================================================
+-->
+
+</body>
+</html>
