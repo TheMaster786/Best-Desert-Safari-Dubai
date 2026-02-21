@@ -160,7 +160,7 @@
             }
         }
 
-        /* Navigation Menu - MODIFIED: All tabs now on left */
+        /* Navigation Menu - MODIFIED: Packages moved to left side */
         .nav-menu {
             position: fixed;
             top: 0;
@@ -199,11 +199,6 @@
             
             .nav-menu .nav-link {
                 display: inline-block;
-            }
-            
-            /* Book Now button stays on right */
-            .nav-menu .btn-primary {
-                margin-left: auto;
             }
         }
 
@@ -263,7 +258,8 @@
             width: 100%;
         }
 
-        /* Book Now Button */
+        /* Book Now Button removed from nav-menu */
+
         .btn {
             display: inline-block;
             padding: 8px 16px;
@@ -313,22 +309,6 @@
         .btn-primary span {
             position: relative;
             z-index: 1;
-        }
-
-        .nav-menu .btn-primary {
-            display: block;
-            width: 100%;
-            text-align: center;
-            margin-top: 10px;
-            padding: 12px 20px;
-        }
-
-        @media (min-width: 992px) {
-            .nav-menu .btn-primary {
-                width: auto;
-                margin-top: 0;
-                margin-left: 20px;
-            }
         }
 
         .btn-outline {
@@ -1170,7 +1150,7 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header -->
+    <!-- Header - MODIFIED: Packages moved between logo and HOME -->
     <header class="header" id="header">
         <div class="container">
             <a href="#" class="logo-text" onclick="showHomeSection(); return false;">Desert Safari <span>World</span></a>
@@ -1181,13 +1161,14 @@
             </div>
             
             <nav class="nav-menu" id="navMenu">
+                <!-- DUBAI PACKAGES moved here, between logo and HOME -->
+                <a href="#" class="nav-link packages-link" onclick="showPackagesPage(); closeMobileMenu(); return false;">DUBAI PACKAGES</a>
                 <a href="#" class="nav-link" onclick="showHomeSection(); closeMobileMenu(); return false;">HOME</a>
                 <a href="#" class="nav-link" onclick="showHomeSectionAndScroll('experiences'); closeMobileMenu(); return false;">EXPERIENCES</a>
-                <a href="#" class="nav-link packages-link" onclick="showPackagesPage(); closeMobileMenu(); return false;">DUBAI PACKAGES</a>
                 <a href="#" class="nav-link" onclick="showHomeSectionAndScroll('blog'); closeMobileMenu(); return false;">BLOG</a>
                 <a href="#" class="nav-link" onclick="showHomeSectionAndScroll('about'); closeMobileMenu(); return false;">ABOUT</a>
                 <a href="#" class="nav-link" onclick="showContactSection(); closeMobileMenu(); return false;">CONTACT</a>
-                <button class="btn btn-primary" onclick="openWhatsApp('General booking inquiry'); return false;"><span>BOOK NOW</span></button>
+                <!-- BOOK NOW button removed from navigation -->
             </nav>
         </div>
     </header>
