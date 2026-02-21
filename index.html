@@ -97,7 +97,7 @@
             animation: fadeIn 1s ease forwards;
         }
 
-        /* Header - MODIFIED: BOOK NOW REMOVED FROM RIGHT SIDE */
+        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -182,7 +182,6 @@
             right: 0;
         }
 
-        /* Desktop styles - BOOK NOW BUTTON IS NOW REMOVED, only nav links remain */
         @media (min-width: 992px) {
             .nav-menu {
                 position: static;
@@ -196,7 +195,6 @@
                 gap: 20px;
             }
             
-            /* Ensure all nav links are visible (Book Now is removed) */
             .nav-menu .nav-link {
                 display: inline-block;
             }
@@ -213,6 +211,7 @@
             transition: color 0.3s;
             position: relative;
             white-space: nowrap;
+            cursor: pointer;
         }
 
         @media (min-width: 992px) {
@@ -246,7 +245,18 @@
             width: 100%;
         }
 
-        /* Book Now Button - REMOVED FROM HEADER per request, but keeping style for other buttons */
+        /* Packages Link - Highlighted */
+        .nav-link.packages-link {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .nav-link.packages-link::after {
+            background: var(--gold);
+            width: 100%;
+        }
+
+        /* Book Now Button */
         .btn {
             display: inline-block;
             padding: 8px 16px;
@@ -298,7 +308,6 @@
             z-index: 1;
         }
 
-        /* Mobile menu button style - NOT USED IN HEADER ANYMORE */
         .nav-menu .btn-primary {
             display: block;
             width: 100%;
@@ -1099,13 +1108,36 @@
         }
 
         .single-blog,
-        .experience-page {
+        .experience-page,
+        .packages-page {
             display: none;
             padding: 100px 0 60px;
         }
 
         #home {
             display: block;
+        }
+
+        /* Packages Page Styles */
+        .packages-page {
+            background: var(--white);
+        }
+
+        .packages-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .packages-header h1 {
+            color: var(--black);
+            margin-bottom: 20px;
+        }
+
+        .packages-header p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -1128,10 +1160,11 @@
             <nav class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link" onclick="closeMobileMenu()">HOME</a>
                 <a href="#experiences" class="nav-link" onclick="closeMobileMenu()">EXPERIENCES</a>
+                <a href="#" class="nav-link packages-link" onclick="showPackagesPage(); closeMobileMenu(); return false;">DUBAI PACKAGES</a>
                 <a href="#blog" class="nav-link" onclick="closeMobileMenu()">BLOG</a>
                 <a href="#about" class="nav-link" onclick="closeMobileMenu()">ABOUT</a>
                 <a href="#contact" class="nav-link" onclick="closeMobileMenu()">CONTACT</a>
-                <!-- BOOK NOW BUTTON REMOVED FROM HEADER as requested -->
+                <button class="btn btn-primary" onclick="openWhatsApp('General booking inquiry')"><span>BOOK NOW</span></button>
             </nav>
         </div>
     </header>
@@ -1188,7 +1221,7 @@
                         <h1>Experience the Best Desert Safari in Dubai</h1>
                         <p>Private. Exclusive. Unforgettable desert safari adventures curated for luxury travelers.</p>
                         <div class="hero-buttons">
-                            <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'd%20like%20to%20book%20a%20private%20desert%20safari." class="btn btn-primary" target="_blank"><span>BOOK YOUR PRIVATE SAFARI</span></a>
+                            <a href="#" class="btn btn-primary" onclick="openWhatsApp('I\'d like to book a private desert safari'); return false;"><span>BOOK YOUR PRIVATE SAFARI</span></a>
                             <a href="#experiences" class="btn btn-outline">VIEW EXPERIENCES</a>
                         </div>
                     </div>
@@ -1404,7 +1437,7 @@
             <div class="section" style="background: linear-gradient(135deg, var(--gold), var(--light-gold)); padding: 50px 0;">
                 <div class="container" style="text-align: center;">
                     <h2 style="color: var(--white); margin-bottom: 20px;">Your Exclusive Desert Experience Awaits</h2>
-                    <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'm%20ready%20to%20book%20my%20desert%20adventure." class="btn btn-primary" style="background: var(--black);" target="_blank"><span>BOOK NOW ON WHATSAPP</span></a>
+                    <a href="#" class="btn btn-primary" style="background: var(--black);" onclick="openWhatsApp('I\'m ready to book my desert adventure'); return false;"><span>BOOK NOW ON WHATSAPP</span></a>
                 </div>
             </div>
         </section>
@@ -1414,7 +1447,7 @@
             <div class="container">
                 <h1>Private Luxury Desert Safari</h1>
                 <p style="margin: 30px 0;">Experience the ultimate private desert adventure with VIP treatment throughout.</p>
-                <a href="https://wa.me/971505167381?text=Hello%2C%20I'm%20interested%20in%20the%20Private%20Luxury%20Desert%20Safari." class="btn btn-primary" target="_blank"><span>BOOK VIA WHATSAPP</span></a>
+                <a href="#" class="btn btn-primary" onclick="openWhatsApp('I\'m interested in the Private Luxury Desert Safari'); return false;"><span>BOOK VIA WHATSAPP</span></a>
             </div>
         </section>
 
@@ -1422,7 +1455,7 @@
             <div class="container">
                 <h1>Ultra VIP Desert Experience</h1>
                 <p style="margin: 30px 0;">The pinnacle of desert luxury with exclusive service and premium amenities.</p>
-                <a href="https://wa.me/971505167381?text=Hello%2C%20I'm%20interested%20in%20the%20Ultra%20VIP%20Desert%20Experience." class="btn btn-primary" target="_blank"><span>BOOK VIA WHATSAPP</span></a>
+                <a href="#" class="btn btn-primary" onclick="openWhatsApp('I\'m interested in the Ultra VIP Desert Experience'); return false;"><span>BOOK VIA WHATSAPP</span></a>
             </div>
         </section>
 
@@ -1430,7 +1463,18 @@
             <div class="container">
                 <h1>Overnight Royal Desert Escape</h1>
                 <p style="margin: 30px 0;">Sleep under the stars in luxury with our exclusive overnight package.</p>
-                <a href="https://wa.me/971505167381?text=Hello%2C%20I'm%20interested%20in%20the%20Overnight%20Royal%20Desert%20Escape." class="btn btn-primary" target="_blank"><span>BOOK VIA WHATSAPP</span></a>
+                <a href="#" class="btn btn-primary" onclick="openWhatsApp('I\'m interested in the Overnight Royal Desert Escape'); return false;"><span>BOOK VIA WHATSAPP</span></a>
+            </div>
+        </section>
+
+        <!-- Packages Page (loads packages.html content via iframe) -->
+        <section class="packages-page" id="packages-page">
+            <div class="container">
+                <div class="packages-header">
+                    <h1>Dubai Safari Packages</h1>
+                    <p>Choose from our curated selection of desert experiences</p>
+                </div>
+                <iframe src="packages.html" style="width: 100%; height: 100vh; border: none; overflow-y: auto;" id="packagesFrame"></iframe>
             </div>
         </section>
 
@@ -1448,7 +1492,7 @@
                 <img src="" alt="Blog Featured Image" class="blog-featured-image" id="blogImageDisplay" style="width: 100%; max-height: 500px; object-fit: cover; margin: 30px 0;">
                 <div class="blog-content-full" id="blogContentDisplay"></div>
                 <div class="blog-navigation">
-                    <a href="#" class="blog-nav-link" onclick="showBlogSection()"><i class="fas fa-arrow-left"></i> BACK TO BLOG</a>
+                    <a href="#" class="blog-nav-link" onclick="showBlogSection(); return false;"><i class="fas fa-arrow-left"></i> BACK TO BLOG</a>
                 </div>
             </div>
         </div>
@@ -1461,7 +1505,7 @@
                     <p>Have questions or special requests? Contact us on WhatsApp for immediate assistance.</p>
                 </div>
                 <div style="text-align: center; margin: 40px 0;">
-                    <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I%20have%20a%20question." class="btn btn-primary" style="font-size: 18px; padding: 20px 40px;" target="_blank">
+                    <a href="#" class="btn btn-primary" style="font-size: 18px; padding: 20px 40px;" onclick="openWhatsApp('I have a question'); return false;">
                         <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> CHAT ON WHATSAPP
                     </a>
                 </div>
@@ -1479,20 +1523,21 @@
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
-                    <a href="#about">ABOUT US</a>
-                    <a href="#experiences">EXPERIENCES</a>
-                    <a href="#blog">BLOG</a>
-                    <a href="#contact">CONTACT</a>
+                    <a href="#about" onclick="showHomeSection(); return false;">ABOUT US</a>
+                    <a href="#experiences" onclick="showHomeSection(); return false;">EXPERIENCES</a>
+                    <a href="#" onclick="showPackagesPage(); return false;">DUBAI PACKAGES</a>
+                    <a href="#blog" onclick="showHomeSection(); return false;">BLOG</a>
+                    <a href="#contact" onclick="showContactSection(); return false;">CONTACT</a>
                 </div>
                 <div class="footer-links">
                     <h4>Experiences</h4>
-                    <a href="#" onclick="showExperience('private')">PRIVATE LUXURY SAFARI</a>
-                    <a href="#" onclick="showExperience('vip')">ULTRA VIP EXPERIENCE</a>
-                    <a href="#" onclick="showExperience('overnight')">OVERNIGHT ESCAPE</a>
+                    <a href="#" onclick="showExperience('private'); return false;">PRIVATE LUXURY SAFARI</a>
+                    <a href="#" onclick="showExperience('vip'); return false;">ULTRA VIP EXPERIENCE</a>
+                    <a href="#" onclick="showExperience('overnight'); return false;">OVERNIGHT ESCAPE</a>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact</h4>
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/971505167381">+971 50 516 7381</a></p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="#" onclick="openWhatsApp('Booking inquiry'); return false;">+971 50 516 7381</a></p>
                     <p><i class="far fa-envelope"></i> bookings@desertsafariworld.com</p>
                 </div>
             </div>
@@ -1513,6 +1558,13 @@
 
         function closeMobileMenu() {
             document.getElementById('navMenu').classList.remove('active');
+        }
+
+        // WhatsApp Function
+        function openWhatsApp(message) {
+            const phoneNumber = '971505167381';
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
         }
 
         // Load blog posts
@@ -1594,9 +1646,7 @@
                 document.getElementById('blogImageDisplay').src = post.image;
                 document.getElementById('blogContentDisplay').innerHTML = post.content;
                 
-                document.getElementById('home').style.display = 'none';
-                document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
-                document.getElementById('contact').style.display = 'none';
+                hideAllSections();
                 document.getElementById('singleBlog').style.display = 'block';
                 closeMobileMenu();
                 window.scrollTo(0, 0);
@@ -1604,10 +1654,8 @@
         }
 
         function showBlogSection() {
+            hideAllSections();
             document.getElementById('home').style.display = 'block';
-            document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
-            document.getElementById('contact').style.display = 'none';
-            document.getElementById('singleBlog').style.display = 'none';
             closeMobileMenu();
             setTimeout(() => {
                 document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
@@ -1628,15 +1676,39 @@
         });
 
         function showExperience(type) {
-            document.querySelectorAll('.experience-page').forEach(page => {
-                page.style.display = 'none';
-            });
-            document.getElementById('home').style.display = 'none';
-            document.getElementById('contact').style.display = 'none';
-            document.getElementById('singleBlog').style.display = 'none';
+            hideAllSections();
             document.getElementById(type + '-experience').style.display = 'block';
             closeMobileMenu();
             window.scrollTo(0, 0);
+        }
+
+        function showPackagesPage() {
+            hideAllSections();
+            document.getElementById('packages-page').style.display = 'block';
+            closeMobileMenu();
+            window.scrollTo(0, 0);
+        }
+
+        function showContactSection() {
+            hideAllSections();
+            document.getElementById('contact').style.display = 'block';
+            closeMobileMenu();
+            window.scrollTo(0, 0);
+        }
+
+        function showHomeSection() {
+            hideAllSections();
+            document.getElementById('home').style.display = 'block';
+            closeMobileMenu();
+            window.scrollTo(0, 0);
+        }
+
+        function hideAllSections() {
+            document.getElementById('home').style.display = 'none';
+            document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
+            document.getElementById('contact').style.display = 'none';
+            document.getElementById('singleBlog').style.display = 'none';
+            document.getElementById('packages-page').style.display = 'none';
         }
 
         // Smooth scroll
@@ -1646,38 +1718,18 @@
                 const targetId = this.getAttribute('href');
                 
                 if (targetId === '#home') {
-                    document.getElementById('home').style.display = 'block';
-                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
-                    document.getElementById('contact').style.display = 'none';
-                    document.getElementById('singleBlog').style.display = 'none';
-                    window.scrollTo(0, 0);
+                    showHomeSection();
                 } else if (targetId === '#blog') {
-                    document.getElementById('home').style.display = 'block';
-                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
-                    document.getElementById('contact').style.display = 'none';
-                    document.getElementById('singleBlog').style.display = 'none';
-                    setTimeout(() => {
-                        document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
+                    showBlogSection();
                 } else if (targetId === '#contact') {
-                    document.getElementById('home').style.display = 'none';
-                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
-                    document.getElementById('contact').style.display = 'block';
-                    document.getElementById('singleBlog').style.display = 'none';
-                    window.scrollTo(0, 0);
+                    showContactSection();
                 } else if (targetId === '#about') {
-                    document.getElementById('home').style.display = 'block';
-                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
-                    document.getElementById('contact').style.display = 'none';
-                    document.getElementById('singleBlog').style.display = 'none';
+                    showHomeSection();
                     setTimeout(() => {
                         document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
                     }, 100);
                 } else if (targetId === '#experiences') {
-                    document.getElementById('home').style.display = 'block';
-                    document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
-                    document.getElementById('contact').style.display = 'none';
-                    document.getElementById('singleBlog').style.display = 'none';
+                    showHomeSection();
                     setTimeout(() => {
                         document.getElementById('experiences').scrollIntoView({ behavior: 'smooth' });
                     }, 100);
@@ -1708,11 +1760,7 @@
             document.getElementById('adminPanel').classList.remove('active');
             alert('Blog post published successfully!');
             
-            document.getElementById('home').style.display = 'block';
-            document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
-            document.getElementById('contact').style.display = 'none';
-            document.getElementById('singleBlog').style.display = 'none';
-            
+            showHomeSection();
             setTimeout(() => {
                 document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
             }, 100);
@@ -1727,10 +1775,7 @@
         }
 
         // Initialize
-        document.getElementById('home').style.display = 'block';
-        document.querySelectorAll('.experience-page').forEach(p => p.style.display = 'none');
-        document.getElementById('contact').style.display = 'none';
-        document.getElementById('singleBlog').style.display = 'none';
+        showHomeSection();
         document.getElementById('adminPanel').classList.remove('active');
         
         loadBlogPosts();
