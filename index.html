@@ -160,7 +160,7 @@
             }
         }
 
-        /* Navigation Menu */
+        /* Navigation Menu - MODIFIED: All tabs now on left */
         .nav-menu {
             position: fixed;
             top: 0;
@@ -182,6 +182,7 @@
             right: 0;
         }
 
+        /* Desktop styles - All nav links on left */
         @media (min-width: 992px) {
             .nav-menu {
                 position: static;
@@ -193,10 +194,16 @@
                 flex-direction: row;
                 align-items: center;
                 gap: 20px;
+                margin-left: 20px;
             }
             
             .nav-menu .nav-link {
                 display: inline-block;
+            }
+            
+            /* Book Now button stays on right */
+            .nav-menu .btn-primary {
+                margin-left: auto;
             }
         }
 
@@ -314,6 +321,14 @@
             text-align: center;
             margin-top: 10px;
             padding: 12px 20px;
+        }
+
+        @media (min-width: 992px) {
+            .nav-menu .btn-primary {
+                width: auto;
+                margin-top: 0;
+                margin-left: 20px;
+            }
         }
 
         .btn-outline {
@@ -1112,15 +1127,17 @@
         .packages-page {
             display: none;
             padding: 100px 0 60px;
+            min-height: 100vh;
         }
 
         #home {
             display: block;
         }
 
-        /* Packages Page Styles */
+        /* Packages Page Styles - Full page */
         .packages-page {
             background: var(--white);
+            width: 100%;
         }
 
         .packages-header {
@@ -1139,18 +1156,24 @@
             max-width: 700px;
             margin: 0 auto;
         }
+
+        /* Hide admin toggle on packages page */
+        body.packages-active .admin-toggle,
+        body.packages-active .admin-section {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/971505167381?text=Hello%20Desert%20Safari%20World%2C%20I'm%20interested%20in%20booking%20a%20desert%20safari." class="whatsapp-float" target="_blank">
+    <a href="#" class="whatsapp-float" onclick="openWhatsApp('Hello Desert Safari World, I\'m interested in booking a desert safari.'); return false;">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Header -->
     <header class="header" id="header">
         <div class="container">
-            <a href="#" class="logo-text" id="homeLink">Desert Safari <span>World</span></a>
+            <a href="#" class="logo-text" onclick="showHomeSection(); return false;">Desert Safari <span>World</span></a>
             
             <!-- Mobile Menu Toggle -->
             <div class="menu-toggle" onclick="toggleMobileMenu()">
@@ -1158,20 +1181,20 @@
             </div>
             
             <nav class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link" onclick="closeMobileMenu()">HOME</a>
-                <a href="#experiences" class="nav-link" onclick="closeMobileMenu()">EXPERIENCES</a>
+                <a href="#" class="nav-link" onclick="showHomeSection(); closeMobileMenu(); return false;">HOME</a>
+                <a href="#" class="nav-link" onclick="showHomeSectionAndScroll('experiences'); closeMobileMenu(); return false;">EXPERIENCES</a>
                 <a href="#" class="nav-link packages-link" onclick="showPackagesPage(); closeMobileMenu(); return false;">DUBAI PACKAGES</a>
-                <a href="#blog" class="nav-link" onclick="closeMobileMenu()">BLOG</a>
-                <a href="#about" class="nav-link" onclick="closeMobileMenu()">ABOUT</a>
-                <a href="#contact" class="nav-link" onclick="closeMobileMenu()">CONTACT</a>
-                <button class="btn btn-primary" onclick="openWhatsApp('General booking inquiry')"><span>BOOK NOW</span></button>
+                <a href="#" class="nav-link" onclick="showHomeSectionAndScroll('blog'); closeMobileMenu(); return false;">BLOG</a>
+                <a href="#" class="nav-link" onclick="showHomeSectionAndScroll('about'); closeMobileMenu(); return false;">ABOUT</a>
+                <a href="#" class="nav-link" onclick="showContactSection(); closeMobileMenu(); return false;">CONTACT</a>
+                <button class="btn btn-primary" onclick="openWhatsApp('General booking inquiry'); return false;"><span>BOOK NOW</span></button>
             </nav>
         </div>
     </header>
 
     <!-- Admin Toggle -->
-    <div class="admin-toggle">
-        <button class="admin-toggle-btn" id="adminToggleBtn" onclick="toggleAdminPanel()">ADMIN: NEW BLOG POST</button>
+    <div class="admin-toggle" id="adminToggle">
+        <button class="admin-toggle-btn" onclick="toggleAdminPanel()">ADMIN: NEW BLOG POST</button>
     </div>
 
     <!-- Admin Blog Post Form -->
@@ -1222,7 +1245,7 @@
                         <p>Private. Exclusive. Unforgettable desert safari adventures curated for luxury travelers.</p>
                         <div class="hero-buttons">
                             <a href="#" class="btn btn-primary" onclick="openWhatsApp('I\'d like to book a private desert safari'); return false;"><span>BOOK YOUR PRIVATE SAFARI</span></a>
-                            <a href="#experiences" class="btn btn-outline">VIEW EXPERIENCES</a>
+                            <a href="#" class="btn btn-outline" onclick="showHomeSectionAndScroll('experiences'); return false;">VIEW EXPERIENCES</a>
                         </div>
                     </div>
                 </div>
@@ -1259,7 +1282,7 @@
                             <div class="experience-overlay">
                                 <h3>Private Luxury Desert Safari</h3>
                                 <p>A private 4x4 desert adventure with VIP seating, gourmet dining, and sunset photography.</p>
-                                <a href="#" class="experience-link">View Details <i class="fas fa-arrow-right"></i></a>
+                                <a href="#" class="experience-link" onclick="event.stopPropagation(); showExperience('private'); return false;">View Details <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
 
@@ -1271,7 +1294,7 @@
                             <div class="experience-overlay">
                                 <h3>Ultra VIP Desert Experience</h3>
                                 <p>The ultimate desert safari featuring luxury SUV transfer, private traditional majlis seating, and premium dining service.</p>
-                                <a href="#" class="experience-link">View Details <i class="fas fa-arrow-right"></i></a>
+                                <a href="#" class="experience-link" onclick="event.stopPropagation(); showExperience('vip'); return false;">View Details <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
 
@@ -1283,7 +1306,7 @@
                             <div class="experience-overlay">
                                 <h3>Overnight Royal Desert Escape</h3>
                                 <p>Sleep under the Arabian sky with your loved ones in a luxury tent with fine dining and sunrise camel trekking.</p>
-                                <a href="#" class="experience-link">View Details <i class="fas fa-arrow-right"></i></a>
+                                <a href="#" class="experience-link" onclick="event.stopPropagation(); showExperience('overnight'); return false;">View Details <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1467,15 +1490,9 @@
             </div>
         </section>
 
-        <!-- Packages Page (loads packages.html content via iframe) -->
+        <!-- Packages Page (Full page with iframe) -->
         <section class="packages-page" id="packages-page">
-            <div class="container">
-                <div class="packages-header">
-                    <h1>Dubai Safari Packages</h1>
-                    <p>Choose from our curated selection of desert experiences</p>
-                </div>
-                <iframe src="packages.html" style="width: 100%; height: 100vh; border: none; overflow-y: auto;" id="packagesFrame"></iframe>
-            </div>
+            <iframe src="packages.html" style="width: 100%; min-height: 100vh; border: none; display: block;" id="packagesFrame"></iframe>
         </section>
 
         <!-- Single Blog Post View -->
@@ -1523,11 +1540,11 @@
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
-                    <a href="#about" onclick="showHomeSection(); return false;">ABOUT US</a>
-                    <a href="#experiences" onclick="showHomeSection(); return false;">EXPERIENCES</a>
+                    <a href="#" onclick="showHomeSection(); return false;">ABOUT US</a>
+                    <a href="#" onclick="showHomeSectionAndScroll('experiences'); return false;">EXPERIENCES</a>
                     <a href="#" onclick="showPackagesPage(); return false;">DUBAI PACKAGES</a>
-                    <a href="#blog" onclick="showHomeSection(); return false;">BLOG</a>
-                    <a href="#contact" onclick="showContactSection(); return false;">CONTACT</a>
+                    <a href="#" onclick="showHomeSectionAndScroll('blog'); return false;">BLOG</a>
+                    <a href="#" onclick="showContactSection(); return false;">CONTACT</a>
                 </div>
                 <div class="footer-links">
                     <h4>Experiences</h4>
@@ -1563,7 +1580,7 @@
         // WhatsApp Function
         function openWhatsApp(message) {
             const phoneNumber = '971505167381';
-            const encodedMessage = encodeURIComponent(message);
+            const encodedMessage = encodeURIComponent('Hello Desert Safari World, ' + message);
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
         }
 
@@ -1648,6 +1665,7 @@
                 
                 hideAllSections();
                 document.getElementById('singleBlog').style.display = 'block';
+                document.getElementById('adminToggle').style.display = 'block';
                 closeMobileMenu();
                 window.scrollTo(0, 0);
             }
@@ -1656,6 +1674,7 @@
         function showBlogSection() {
             hideAllSections();
             document.getElementById('home').style.display = 'block';
+            document.getElementById('adminToggle').style.display = 'block';
             closeMobileMenu();
             setTimeout(() => {
                 document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
@@ -1678,6 +1697,7 @@
         function showExperience(type) {
             hideAllSections();
             document.getElementById(type + '-experience').style.display = 'block';
+            document.getElementById('adminToggle').style.display = 'block';
             closeMobileMenu();
             window.scrollTo(0, 0);
         }
@@ -1685,6 +1705,7 @@
         function showPackagesPage() {
             hideAllSections();
             document.getElementById('packages-page').style.display = 'block';
+            document.getElementById('adminToggle').style.display = 'none'; // Hide admin on packages page
             closeMobileMenu();
             window.scrollTo(0, 0);
         }
@@ -1692,6 +1713,7 @@
         function showContactSection() {
             hideAllSections();
             document.getElementById('contact').style.display = 'block';
+            document.getElementById('adminToggle').style.display = 'block';
             closeMobileMenu();
             window.scrollTo(0, 0);
         }
@@ -1699,8 +1721,16 @@
         function showHomeSection() {
             hideAllSections();
             document.getElementById('home').style.display = 'block';
+            document.getElementById('adminToggle').style.display = 'block';
             closeMobileMenu();
             window.scrollTo(0, 0);
+        }
+
+        function showHomeSectionAndScroll(sectionId) {
+            showHomeSection();
+            setTimeout(() => {
+                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+            }, 100);
         }
 
         function hideAllSections() {
@@ -1711,31 +1741,11 @@
             document.getElementById('packages-page').style.display = 'none';
         }
 
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                
-                if (targetId === '#home') {
-                    showHomeSection();
-                } else if (targetId === '#blog') {
-                    showBlogSection();
-                } else if (targetId === '#contact') {
-                    showContactSection();
-                } else if (targetId === '#about') {
-                    showHomeSection();
-                    setTimeout(() => {
-                        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
-                } else if (targetId === '#experiences') {
-                    showHomeSection();
-                    setTimeout(() => {
-                        document.getElementById('experiences').scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
-                }
-                closeMobileMenu();
-            });
+        // Listen for messages from iframe
+        window.addEventListener('message', function(event) {
+            if (event.data === 'showHome') {
+                showHomeSection();
+            }
         });
 
         // Blog form submission
