@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Desert Safari World | Dubai Tours</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Dubai Safari Packages | Desert Safari World</title>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -32,6 +32,7 @@
         .header {
             text-align: center;
             margin-bottom: 2rem;
+            padding-top: 1rem;
         }
 
         .header h1 {
@@ -52,6 +53,25 @@
             color: #7f8c8d;
             font-size: clamp(0.9rem, 4vw, 1.1rem);
             margin-top: 0.5rem;
+        }
+
+        .back-home {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .back-home a {
+            color: #b45f2b;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: gap 0.3s;
+        }
+
+        .back-home a:hover {
+            gap: 10px;
         }
 
         /* Section Titles */
@@ -399,6 +419,40 @@
             margin: 1.5rem 0;
         }
 
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        @media (min-width: 768px) {
+            .whatsapp-float {
+                bottom: 30px;
+                right: 30px;
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
         /* Mobile Optimization */
         @media (max-width: 480px) {
             .container {
@@ -430,7 +484,17 @@
     </style>
 </head>
 <body>
+    <!-- WhatsApp Float Button -->
+    <a href="#" class="whatsapp-float" onclick="openWhatsApp('Hello Desert Safari World, I\'m interested in booking a package.'); return false;">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <div class="container">
+        <!-- Back to Home Link -->
+        <div class="back-home">
+            <a href="#" onclick="goBackToHome(); return false;"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        </div>
+
         <!-- Header -->
         <div class="header">
             <h1><span>Desert</span> Safari World</h1>
@@ -453,7 +517,7 @@
                         <li><i class="fas fa-dune-buggy"></i> Dune Bashing, Camel Ride</li>
                         <li><i class="fas fa-film"></i> 5 Shows + Unlimited BBQ</li>
                     </ul>
-                    <button class="btn btn-primary">Book Now</button>
+                    <button class="btn btn-primary" onclick="openWhatsApp('I want to book the Basic Package (AED 59)')">Book Now</button>
                 </div>
             </div>
 
@@ -470,7 +534,7 @@
                         <li><i class="fas fa-car"></i> Private 4x4 SUV</li>
                         <li><i class="fas fa-film"></i> 5 Shows + Unlimited BBQ</li>
                     </ul>
-                    <button class="btn btn-primary">Book Now</button>
+                    <button class="btn btn-primary" onclick="openWhatsApp('I want to book the Advance Package (AED 99)')">Book Now</button>
                 </div>
             </div>
 
@@ -487,7 +551,7 @@
                         <li><i class="fas fa-motorcycle"></i> ATV Bike + 4x4 SUV</li>
                         <li><i class="fas fa-utensils"></i> VIP Camp + All Activities</li>
                     </ul>
-                    <button class="btn btn-primary">Book Now</button>
+                    <button class="btn btn-primary" onclick="openWhatsApp('I want to book the Premium Package (AED 199)')">Book Now</button>
                 </div>
             </div>
         </div>
@@ -510,7 +574,7 @@
                         <li><i class="fas fa-car-side"></i> Shared 4x4 SUV</li>
                         <li><i class="fas fa-camel"></i> Dune Bashing, Camel Ride, Sand Boarding</li>
                     </ul>
-                    <button class="btn btn-outline">Book Now</button>
+                    <button class="btn btn-outline" onclick="openWhatsApp('I want to book the Morning Desert Safari (AED 150)')">Book Now</button>
                 </div>
             </div>
 
@@ -529,7 +593,7 @@
                         <li><i class="fas fa-car"></i> Shared Car + Tour Guide</li>
                         <li><i class="fas fa-camera"></i> Photo Points, Half Day Tour</li>
                     </ul>
-                    <button class="btn btn-outline">Book Now</button>
+                    <button class="btn btn-outline" onclick="openWhatsApp('I want to book the Sightseeing Dubai Tour (AED 119)')">Book Now</button>
                 </div>
             </div>
 
@@ -548,7 +612,7 @@
                         <li><i class="fas fa-car-side"></i> Shared 4x4 SUV</li>
                         <li><i class="fas fa-mosque"></i> Sheikh Zayed Mosque, Yas Island</li>
                     </ul>
-                    <button class="btn btn-outline">Book Now</button>
+                    <button class="btn btn-outline" onclick="openWhatsApp('I want to book the Full Day Abu Dhabi Tour (AED 150)')">Book Now</button>
                 </div>
             </div>
 
@@ -567,7 +631,7 @@
                         <li><i class="fas fa-car-side"></i> Shared 4x4 SUV</li>
                         <li><i class="fas fa-water"></i> Hatta Dam, Heritage Village</li>
                     </ul>
-                    <button class="btn btn-outline">Book Now</button>
+                    <button class="btn btn-outline" onclick="openWhatsApp('I want to book the Half Day Hatta Tour (AED 150)')">Book Now</button>
                 </div>
             </div>
 
@@ -586,7 +650,7 @@
                         <li><i class="fas fa-flag-checkered"></i> Self-Drive Desert</li>
                         <li><i class="fas fa-sun"></i> Morning / Evening Slots</li>
                     </ul>
-                    <button class="btn btn-outline">Book Now</button>
+                    <button class="btn btn-outline" onclick="openWhatsApp('I want to book the 4 Seater RZR Buggy (AED 1000)')">Book Now</button>
                 </div>
             </div>
 
@@ -605,7 +669,7 @@
                         <li><i class="fas fa-flag-checkered"></i> Self-Drive Desert</li>
                         <li><i class="fas fa-sun"></i> Morning / Evening Slots</li>
                     </ul>
-                    <button class="btn btn-outline">Book Now</button>
+                    <button class="btn btn-outline" onclick="openWhatsApp('I want to book the 2 Seater RZR Buggy (AED 800)')">Book Now</button>
                 </div>
             </div>
         </div>
@@ -659,8 +723,42 @@
         <hr>
         <div class="footer">
             <p><i class="fas fa-info-circle"></i> Prices are per person & subject to change. Reschedule 24hrs prior.</p>
-            <p style="margin-top: 0.8rem;">© 2026 Desert Safari World · All rights reserved</p>
+            <p style="margin-top: 0.8rem;">© 2024 Desert Safari World · All rights reserved</p>
         </div>
     </div>
+
+    <script>
+        // WhatsApp Function
+        function openWhatsApp(message) {
+            const phoneNumber = '971505167381';
+            const encodedMessage = encodeURIComponent('Hello Desert Safari World, ' + message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Go back to home page (index.html)
+        function goBackToHome() {
+            window.location.href = 'index.html';
+        }
+
+        // If this page is loaded in an iframe, we need to communicate with parent
+        if (window.parent !== window) {
+            // We're in an iframe
+            const backLink = document.querySelector('.back-home a');
+            if (backLink) {
+                backLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Tell parent to show home
+                    window.parent.postMessage('showHome', '*');
+                });
+            }
+        }
+
+        // Listen for messages from parent
+        window.addEventListener('message', function(event) {
+            if (event.data === 'showHome') {
+                goBackToHome();
+            }
+        });
+    </script>
 </body>
 </html>
